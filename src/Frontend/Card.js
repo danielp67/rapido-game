@@ -1,11 +1,13 @@
 import React, { useRef, useState} from 'react';
 
 const Card = (props) => {
-
     const dragItem = useRef();
     const dragOverItem = useRef();
     const [list, setList] = useState(['Item 1','Item 2','Item 3','Item 4','Item 5','Item 6']);
     const {drop, setSelectedCard, card} = props
+
+
+    console.log(card)
 
     const dragStart = (e, card) => {
        // setSelectedCard(card)

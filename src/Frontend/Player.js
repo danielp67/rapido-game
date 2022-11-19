@@ -15,35 +15,34 @@ const Player= (props) => {
           //   const values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
         const suits = ["primary", "success"];
         const values = ["1", "2"];
-
+        let tempDeck = []
 // create a deck of cards
         for (let i = 0; i < suits.length; i++) {
             for (let x = 0; x < values.length; x++) {
                 let card = {Value: values[x], Suit: suits[i]};
-                deck.push(card);
+                tempDeck.push(card);
             }
         }
 
 // shuffle the cards
-        for (let i = deck.length - 1; i > 0; i--) {
+        for (let i = tempDeck.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * i);
-            let temp = deck[i];
-            deck[i] = deck[j];
-            deck[j] = temp;
+            let temp = tempDeck[i];
+            tempDeck[i] = tempDeck[j];
+            tempDeck[j] = temp;
         }
+        console.log(tempDeck)
 
-        setDeck(deck)
+        setDeck(tempDeck)
         setLoading(true)
-        setRemainingCards(deck.length)
+        setRemainingCards(tempDeck.length)
     }
 
-   const  nextCard = (props) => {
-        let deck = this.state.deck
-        let temp = deck.shift()
-        deck.push(temp)
-
-
-        this.setState({deck: deck, loading: true, remainingCards:deck.length})
+   const  nextCard = () => {
+            let tempDeck = [...deck]
+            let temp = tempDeck.shift()
+            tempDeck.push(temp)
+            setDeck(tempDeck)
     }
 
 
@@ -69,7 +68,7 @@ if(!init){
                 <div className="playerSlot col-8">
                     <h1 className="text-center">Player slot</h1>
                     <div className="col-2 ">
-                        <Deck deck={deck}/>
+                        <Deck deck={[]}/>
                         <NextButton  nextCard={nextCard}/>
                         Cartes restantes : {remainingCards}
                     </div>
