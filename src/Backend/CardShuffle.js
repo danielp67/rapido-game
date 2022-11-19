@@ -1,40 +1,51 @@
 import React, { Component } from 'react';
+import Player from "../Frontend/Player";
 
 class CardShuffle extends Component {
 
     state = {
+        characters: [],
+    }
+
+    removeCharacter = (index) => {
+        const {characters} = this.state
+
+        this.setState({
+            characters: characters.filter((character, i) => {
+                return i !== index
+            }),
+        })
+    }
+
+    getComments = (index) => {
+        const {characters} = this.state
+
+        this.setState({
+            characters: characters.filter((character, i) => {
+                return i !== index
+            }),
+        })
     }
 
 
     render() {
-        const suits = ["primary", "success", "warning", "danger"];
-        const values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-
-// empty array to contain cards
-        let deck = [];
-
-// create a deck of cards
-        for (let i = 0; i < suits.length; i++) {
-            for (let x = 0; x < values.length; x++) {
-                let card = { Value: values[x], Suit: suits[i] };
-                deck.push(card);
-            }
-        }
-
-// shuffle the cards
-        for (let i = deck.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * i);
-            let temp = deck[i];
-            deck[i] = deck[j];
-            deck[j] = temp;
-        }
+        const { characters } = this.state
 
         return (
             <div className="m-2 card">
-                <h1 className="text-center">shuffle slot </h1>
+                <h1 className="text-center">Board Game from class</h1>
+                <Player/>
             </div>
         )
     }
+
+
+    handleSubmit = (character) => {
+        this.setState({characters: [...this.state.characters, character]})
+    }
+
+
+
 }
 
 

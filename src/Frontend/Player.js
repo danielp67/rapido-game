@@ -1,30 +1,20 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import Deck from "./Deck";
 import NextButton from "./NextButton";
 
-class Player extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            deck: [{Value: "X", Suit: "secondary"}],
-            loading: false,
-            remainingCards: "",
-        }
-    }
+const Player= (props) => {
+
+    const [deck, setDeck] = useState([{Value: "X", Suit: "secondary"}])
+    const [loading, setLoading] = useState(false)
+    const [remainingCards, setRemainingCards] = useState()
+    const [init, setInit] = useState(false)
 
 
-    componentDidMount() {
-        this.initDeck()
-    }
-
-    initDeck = (props) => {
+    const initDeck = () => {
          // const suits = ["primary", "success", "warning", "danger"];
           //   const values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
         const suits = ["primary", "success"];
         const values = ["1", "2"];
-
-// empty array to contain cards
-        let deck = [];
 
 // create a deck of cards
         for (let i = 0; i < suits.length; i++) {
@@ -42,45 +32,51 @@ class Player extends Component {
             deck[j] = temp;
         }
 
-        this.setState({deck: deck, loading: true, remainingCards:deck.length})
+        setDeck(deck)
+        setLoading(true)
+        setRemainingCards(deck.length)
     }
 
-    nextCard = (props) => {
+   const  nextCard = (props) => {
         let deck = this.state.deck
         let temp = deck.shift()
         deck.push(temp)
 
+
         this.setState({deck: deck, loading: true, remainingCards:deck.length})
     }
 
 
-    render() {
+if(!init){
+    initDeck()
+    setInit(true)
+}
 
-        if(this.state.loading){
+        if(loading){
         return (
-            <div id="playerSlot" className="m-2 card">
+            <div className="playerSlot col-8">
                 <h1 className="text-center">Player slot </h1>
                 <div className="col-2 text-center">
-                    <Deck deck={this.state.deck}/>
-                    <NextButton  nextCard={this.nextCard}/>
-                    Cartes restantes : {this.state.remainingCards}
+                    <Deck deck={deck}/>
+                    <NextButton  nextCard={nextCard}/>
+                    Cartes restantes : {remainingCards}
                 </div>
             </div>
         )
         }
         else{
             return (
-                <div id="playerSlot" className="m-2 row">
+                <div className="playerSlot col-8">
                     <h1 className="text-center">Player slot</h1>
                     <div className="col-2 ">
-                        <Deck deck={this.state.deck}/>
-                        <NextButton  nextCard={this.nextCard}/>
-                       // Cartes restantes : {this.state.remainingCards}
+                        <Deck deck={deck}/>
+                        <NextButton  nextCard={nextCard}/>
+                        Cartes restantes : {remainingCards}
                     </div>
                 </div>
             )
         }
-    }
+
 }
 
 
