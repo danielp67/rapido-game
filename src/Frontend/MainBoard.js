@@ -11,7 +11,6 @@ const MainBoard = () => {
     const [currentCard, setCurrentCard] = useState({})
     const [droppedCard, setDroppedCard] = useState([])
     const [initMainBoard, setInitMainBoard] = useState(false)
-    const [time, setTime] = useState(0);
 
     const [deck, setDeck] = useState(
         {
@@ -175,7 +174,7 @@ if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
                     nextCard={nextCard}
                 />
                 <SecondMenu/>
-                <Timer/>
+                <Timer />
             </div>
         </div>
     )
