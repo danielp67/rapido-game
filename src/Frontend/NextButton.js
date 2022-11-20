@@ -1,21 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class NextButton extends Component {
+const NextButton = (props)=> {
 
-    nextCard = (props) => {
-        this.props.nextCard()
-    }
-
-    render() {
+    const {nextCard} = props
 
         return (
 
-            <button type="button" className="btn btn-info" onClick={this.nextCard}>
+            <button type="button" className="btn btn-info" onClick={nextCard}>
                 Next Card
             </button>
 
         )
-    }
+
 }
 
 export default NextButton;

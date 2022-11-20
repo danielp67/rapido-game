@@ -1,24 +1,41 @@
-import React, { useRef} from 'react';
+import React, {useRef, useState} from 'react';
 
 const SortedSlot = (props) => {
 
-    const {slotIndex, setSelectedSlot, selectedSlot} = props
+    const {slotIndex, setSelectedSlot, selectedSlot, droppedCard} = props
+    const[enter, setEnter]=  useState(false)
 
     const dragEnter = () => {
-        console.log('dragEnter',slotIndex, props);
         setSelectedSlot(slotIndex)
+        setEnter(true)
     };
 
+    const dragLeave = () => {
+        setEnter(false)
+    };
 
-    let cardValue = {Value:"X", Suit:"secondary"}
+if(enter)
+{
         return (
-            <div className={`col-3 border border-success rounded bg-${cardValue.Suit}`}
+            <div className={`col-3 border border-success rounded bg-${droppedCard[0].Suit}`}
                  onDragEnter={() => dragEnter()}
+                 onDragLeave={() => dragLeave()}
             >
-                <h1 className="text-center">{cardValue.Value} test </h1>
+                <h1 className="text-center">{droppedCard[0].Value} X</h1>
             </div>
         )
 
+    }
+else
+{
+    return (
+        <div className={`col-3 border border-success rounded bg-${droppedCard[0].Suit}`}
+             onDragEnter={() => dragEnter()}
+        >
+            <h1 className="text-center">{droppedCard[0].Value}</h1>
+        </div>
+    )
+}
 
 }
 
