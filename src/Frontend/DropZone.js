@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import SortedSlot from "./SortedSlot";
 
 const DropZone = (props) => {
 
-    const {selectedSlot,setSelectedSlot, droppedCard} = props
+    const {setSelectedSlot, droppedCard} = props
 
     return (
         <div className="col-8 bg-info">

@@ -3,6 +3,7 @@ import Player from "./Player";
 import Bots from "./Bots";
 import DropZone from "./DropZone";
 import SecondMenu from "./SecondMenu";
+import Timer from "./Timer";
 
 const MainBoard = () => {
 
@@ -10,7 +11,7 @@ const MainBoard = () => {
     const [currentCard, setCurrentCard] = useState({})
     const [droppedCard, setDroppedCard] = useState([])
     const [initMainBoard, setInitMainBoard] = useState(false)
-    // const [deckIndex, setDeckIndex] = useState([{Value: "X", Suit: "secondary", Player: "X"}])
+    const [time, setTime] = useState(0);
 
     const [deck, setDeck] = useState(
         {
@@ -128,7 +129,7 @@ if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
         {
             console.log("winner")
 
-           tmpDeck["rapidoSlot"].unshift({Value: "X", Suit: "secondary", Player: "X"})
+           tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary", playerIndex: "X"})
         }
 
             setDeck(tmpDeck)
@@ -157,17 +158,24 @@ if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
                     setSelectedSlot={setSlot}
                     droppedCard={droppedCard}
                 />
-                <Bots/>
+                <Bots
+                    deck={deck}
+                    setCurrentCard={setCard}
+                    drop={drop}
+                    nextCard={nextCard}
+                />
             </div>
 
             <div className="row">
                 <Player
+                    playerIndex={1}
                     deck={deck}
                     setCurrentCard={setCard}
                     drop={drop}
                     nextCard={nextCard}
                 />
                 <SecondMenu/>
+                <Timer/>
             </div>
         </div>
     )

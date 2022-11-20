@@ -8,6 +8,7 @@ function App() {
 
             <div className="m-2 row card">
                 <h1 className="text-center">Rapido Game</h1>
+
             </div>
             <div className="m-2 row card">
                 <MainBoard/>
