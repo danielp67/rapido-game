@@ -17,11 +17,11 @@ const SortedSlot = (props) => {
 if(enter)
 {
         return (
-            <div className={`col-3 border border-success rounded bg-${droppedCard[0].Suit}`}
+            <div className={`col-3 border border-success rounded bg-${droppedCard[0].suit}`}
                  onDragEnter={() => dragEnter()}
                  onDragLeave={() => dragLeave()}
             >
-                <h1 className="text-center">{droppedCard[0].Value} X</h1>
+                <h1 className="text-center">{droppedCard[0].value} X</h1>
             </div>
         )
 
@@ -29,10 +29,10 @@ if(enter)
 else
 {
     return (
-        <div className={`col-3 border border-success rounded bg-${droppedCard[0].Suit}`}
+        <div className={`col-3 border border-success rounded bg-${droppedCard[0].suit}`}
              onDragEnter={() => dragEnter()}
         >
-            <h1 className="text-center">{droppedCard[0].Value}</h1>
+            <h1 className="text-center">{droppedCard[0].value}</h1>
         </div>
     )
 }

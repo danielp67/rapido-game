@@ -1,21 +1,21 @@
 import React from 'react';
 
 const Card = (props) => {
-    const {drop, setCurrentCard, deckIndex, card} = props
+    const {drop, setCurrentCard, slotName, card} = props
 
-    const dragStart = (e, card) => {
-        setCurrentCard(card, deckIndex)
-        console.log('dragStart',card);
+    const dragStart = (e) => {
+        setCurrentCard({card:card, slotName:slotName})
+        console.log('dragStart',card, slotName);
     };
 
         return (
             <div
-                className={`card h-100 bg-${props.card.Suit}`}
-                onDragStart={(e) => dragStart(e, card)}
+                className={`card h-100 bg-${card.suit}`}
+                onDragStart={(e) => dragStart(e)}
                 onDragEnd={drop}
                 draggable
             >
-                {card.Value}
+                {card.value}
             </div>
 
         )
