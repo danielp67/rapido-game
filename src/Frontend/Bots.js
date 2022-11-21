@@ -7,9 +7,10 @@ const Bots = (props) => {
 
         return (
             <div className="col-4 bg-secondary">
-                <h1 className="text-center">Bots Slot</h1>
+                <div className="row">
                 <Player
                     playerIndex={1}
+                    realPlayer={false}
                     deck={deck}
                     setCurrentCard={setCurrentCard}
                     drop={drop}
@@ -17,6 +18,7 @@ const Bots = (props) => {
                 />
                 <Player
                     playerIndex={2}
+                    realPlayer={false}
                     deck={deck}
                     setCurrentCard={setCurrentCard}
                     drop={drop}
@@ -24,11 +26,13 @@ const Bots = (props) => {
                 />
                 <Player
                     playerIndex={3}
+                    realPlayer={false}
                     deck={deck}
                     setCurrentCard={setCurrentCard}
                     drop={drop}
                     nextCard={nextCard}
                 />
+                </div>
             </div>
         )
 }

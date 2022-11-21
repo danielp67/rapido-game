@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import Card from "./Card";
+import Player from "./Player";
 
 const PlayerSlot = (props) => {
 
-    const {slotName, deck, setCurrentCard, drop} = props
+    const {slotName, deck, setCurrentCard, drop, realPlayer} = props
     const[enter, setEnter]=  useState(false)
 
     const dragEnter = () => {
@@ -17,9 +18,10 @@ const PlayerSlot = (props) => {
 
 
         return (
-            <div className="h-100">
+            <div className="">
                 <Card
                     card={deck[slotName][0]}
+                    realPlayer={true}
                     slotName={slotName}
                     setCurrentCard={setCurrentCard}
                     drop={drop}
