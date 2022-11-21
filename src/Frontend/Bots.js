@@ -1,36 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Player from "./Player";
+import AutoPlayer from "./AutoPlayer";
 
 const Bots = (props) => {
 
-    const {deck, setCurrentCard, drop, nextCard} = props
+    const {droppedCard, setDroppedCard, gameStop} = props
+    const [stop, setStop] = useState(false)
+
+    const stopAutoPlayer = (props) => {
+
+        setStop(true)
+        gameStop(props)
+    }
 
         return (
             <div className="col-4 bg-secondary">
                 <div className="row">
-                <Player
+                <AutoPlayer
                     playerIndex={1}
-                    realPlayer={false}
-                    deck={deck}
-                    setCurrentCard={setCurrentCard}
-                    drop={drop}
-                    nextCard={nextCard}
+                    droppedCard={droppedCard}
+                    setDroppedCard={setDroppedCard}
+                    gameStop={stopAutoPlayer}
+                    stop={stop}
                 />
-                <Player
+                <AutoPlayer
                     playerIndex={2}
-                    realPlayer={false}
-                    deck={deck}
-                    setCurrentCard={setCurrentCard}
-                    drop={drop}
-                    nextCard={nextCard}
+                    droppedCard={droppedCard}
+                    setDroppedCard={setDroppedCard}
+                    gameStop={stopAutoPlayer}
+                    stop={stop}
                 />
-                <Player
+                <AutoPlayer
                     playerIndex={3}
-                    realPlayer={false}
-                    deck={deck}
-                    setCurrentCard={setCurrentCard}
-                    drop={drop}
-                    nextCard={nextCard}
+                    droppedCard={droppedCard}
+                    setDroppedCard={setDroppedCard}
+                    gameStop={stopAutoPlayer}
+                    stop={stop}
                 />
                 </div>
             </div>

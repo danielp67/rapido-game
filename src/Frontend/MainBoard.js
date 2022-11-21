@@ -10,6 +10,7 @@ const MainBoard = () => {
     const [selectedSlot, setSelectedSlot] = useState("")
     const [droppedCard, setDroppedCard] = useState([])
     const [initMainBoard, setInitMainBoard] = useState(false)
+    const [stop, setStop] = useState(false)
 
     const initDropZone = () => {
         for (let i = 0; i < 16; i++) {
@@ -24,10 +25,15 @@ const MainBoard = () => {
     };
 
     const drop = (props) => {
-
                 setDroppedCard(props)
-                console.log(props)
             }
+
+
+     const gameStop = (props) => {
+
+        console.log("player win :" + props)
+         setStop(true)
+     }
 
     if (!initMainBoard) {
         initDropZone()
@@ -43,10 +49,9 @@ const MainBoard = () => {
                     droppedCard={droppedCard}
                 />
                 <Bots
-                   // deck={deck}
-                   // setCurrentCard={setCard}
-                  //  drop={drop}
-                  //  nextCard={nextCard}
+                    droppedCard={droppedCard}
+                    setDroppedCard={drop}
+                    gameStop={gameStop}
                 />
             </div>
 
@@ -55,7 +60,7 @@ const MainBoard = () => {
 
                 <Player
                     realPlayer={true}
-                    playerIndex={1}
+                    playerIndex={4}
                     selectedSlot={selectedSlot}
                     setSelectedSlot={setSelectedSlot}
                     droppedCard={droppedCard}
@@ -66,7 +71,10 @@ const MainBoard = () => {
                     <div className="col-4">
 
                     <SecondMenu/>
-                    <Timer />
+                    <Timer
+                        start={true}
+                    stop={stop}
+                    />
 
                     </div>
 

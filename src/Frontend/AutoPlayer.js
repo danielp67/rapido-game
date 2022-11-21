@@ -1,17 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import NextButton from "./NextButton";
 import PlayerSlot from "./PlayerSlot";
 
-const Player = (props) => {
+const AutoPlayer = (props) => {
 
-    const {realPlayer, playerIndex, selectedSlot, setSelectedSlot, droppedCard, setDroppedCard} = props
-
+    const {playerIndex, droppedCard, setDroppedCard, stop, gameStop} = props
     const [currentCard, setCurrentCard] = useState({})
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [deck, setDeck] = useState(
         {
             initialDeck: [],
-            reserveDeck: [],
+     //       reserveDeck: [],
             reserveSlot: [],
             rapidoSlot: [],
             tmpSlot1: [],
@@ -58,7 +57,7 @@ const Player = (props) => {
         setDeck(
             {
                 initialDeck: initalDeck,
-                reserveDeck: [],
+               // reserveDeck: [],
                 reserveSlot: reserveSlot,
                 rapidoSlot: rapidoSlot,
                 tmpSlot1: tmpSlot1,
@@ -80,47 +79,66 @@ const Player = (props) => {
         setCurrentCard(props)
     };
 
-    const drop = () => {
+
+    const checkCardDroppable = () => {
+
+        let isCardDropped = false
         let tmpDroppedCard = [...droppedCard]
-        if(selectedSlot!=="")
+
+        const playerSlot =  ["initialDeck", "reserveSlot", "rapidoSlot", "tmpSlot1", "tmpSlot2", "tmpSlot3"]
+
+        for(let i = 0; i<tmpDroppedCard.length;i++)
         {
+            let previousCard = tmpDroppedCard[i][0]
 
-            let previousCard = tmpDroppedCard[selectedSlot][0]
-            let slotName = currentCard.slotName
-            console.log(previousCard, currentCard)
+            for(let j = 0; j< playerSlot.length;j++)
+            {
 
-            if (
-                (previousCard.value + 1 === currentCard.card.value &&
-                    previousCard.suit === currentCard.card.suit) ||
-                (previousCard.value === 0 && currentCard.card.value === 1)
+                let slotName = playerSlot[j]
+                let currentCard = deck[slotName][0]
 
-            ) {
+                if (
+                    (previousCard.value + 1 === currentCard.value &&
+                        previousCard.suit === currentCard.suit) ||
+                    (previousCard.value === 0 && currentCard.value === 1)
 
-                let tmpDeck = {...deck}
-                tmpDeck[slotName].shift()
+                ) {
 
-                if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
-                {
-                    let tmp = tmpDeck["rapidoSlot"].shift()
-                    tmpDeck[slotName].unshift(tmp)
+                    isCardDropped=true
+                    let tmpDeck = {...deck}
+                    tmpDeck[slotName].shift()
 
+
+                    if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
+                    {
+                        let tmp = tmpDeck["rapidoSlot"].shift()
+                        tmpDeck[slotName].unshift(tmp)
+
+                    }
+
+                    if(tmpDeck["rapidoSlot"].length === 0)
+                    {
+                        console.log("winner")
+                        gameStop(playerIndex)
+                        tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary", playerIndex: "X"})
+                    }
+
+
+                    setDeck(tmpDeck)
+                    tmpDroppedCard[i].unshift(currentCard)
+                    setDroppedCard(tmpDroppedCard)
                 }
-                if(tmpDeck["rapidoSlot"].length === 0)
-                {
-                    console.log("winner")
-
-                    tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary", playerIndex: "X"})
-                }
-
-                setDeck(tmpDeck)
-                tmpDroppedCard[selectedSlot].unshift(currentCard.card)
-                setDroppedCard(tmpDroppedCard)
-                setSelectedSlot("")
-
             }
+
+
         }
 
-    };
+
+        if(!isCardDropped)
+        {
+            nextCard()
+        }
+    }
 
 
     if (!initMainBoard) {
@@ -129,63 +147,73 @@ const Player = (props) => {
 
     }
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if(!stop)
+            {
+                checkCardDroppable()
+            }
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    });
+
 
     return (
             <div className="row">
 
                 <div className="col-2 text-center">
                     <PlayerSlot
-                        realPlayer={realPlayer}
+                        realPlayer={false}
                         slotName={"reserveSlot"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={drop}
+                        drop={""}
                     />
-
-                        <NextButton
-                            nextCard={nextCard}
-                        />
-
                     {deck["reserveSlot"].length}
 
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
+                        realPlayer={false}
                         slotName={"tmpSlot1"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={drop}
+                        drop={""}
                     />
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
+                        realPlayer={false}
                         slotName={"tmpSlot2"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={drop}
+                        drop={""}
                     />
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
+                        realPlayer={false}
                         slotName={"tmpSlot3"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={drop}
+                        drop={""}
                     />
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
+                        realPlayer={false}
                         slotName={"rapidoSlot"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={drop}
+                        drop={""}
                     />
                     {deck["rapidoSlot"].length}
                 </div>
 
-                    <div className="col-2 text-center">
-                        {playerIndex}
-                    </div>
+                <div className="col-2 text-center">
+                    {playerIndex}
+                </div>
 
             </div>
     )
@@ -194,4 +222,4 @@ const Player = (props) => {
 }
 
 
-export default Player;
+export default AutoPlayer;
