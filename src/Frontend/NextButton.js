@@ -7,7 +7,7 @@ const NextButton = (props)=> {
         return (
 
             <button type="button" className="btn btn-info" onClick={nextCard}>
-                Next Card
+                <i className="fa fa-refresh" aria-hidden="true"></i>
             </button>
 
         )

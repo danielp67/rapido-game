@@ -18,10 +18,10 @@ const PlayerSlot = (props) => {
 
 
         return (
-            <div className="">
+            <div className="my-2">
                 <Card
                     card={deck[slotName][0]}
-                    realPlayer={true}
+                    realPlayer={realPlayer}
                     slotName={slotName}
                     setCurrentCard={setCurrentCard}
                     drop={drop}

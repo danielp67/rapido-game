@@ -8,17 +8,29 @@ const Card = (props) => {
         console.log('dragStart',card, slotName);
     };
 
+    if(realPlayer) {
         return (
             <div
-                className={`card bg-${card.suit}`}
+                className={`card playerCard bg-${card.suit}`}
                 onDragStart={(e) => dragStart(e)}
                 onDragEnd={drop}
-                draggable={realPlayer}
+                draggable
             >
-                {card.value}
+                <p className="my-auto">{card.value}</p>
             </div>
 
         )
+    }
+    else{
+        return (
+            <div
+                className={`card autoPlayerCard my-auto bg-${card.suit}`}
+            >
+                <p className="my-auto">{card.value}</p>
+            </div>
+
+        )
+    }
 
 }
 

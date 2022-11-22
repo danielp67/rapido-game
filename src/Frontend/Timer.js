@@ -24,8 +24,8 @@ const Timer = (props) => {
     });
 
     return (
-        <div className="timer">
-            {time} seconds
+        <div className=" text-center">
+            <i className="fa fa-clock-o" aria-hidden="true"></i> {time} seconds
         </div>
     );
 }

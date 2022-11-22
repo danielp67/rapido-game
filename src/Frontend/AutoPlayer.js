@@ -4,7 +4,7 @@ import PlayerSlot from "./PlayerSlot";
 
 const AutoPlayer = (props) => {
 
-    const {playerIndex, droppedCard, setDroppedCard, stop, gameStop} = props
+    const {realPlayer, playerIndex, color, droppedCard, setDroppedCard, stop, gameStop} = props
     const [currentCard, setCurrentCard] = useState({})
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [deck, setDeck] = useState(
@@ -164,11 +164,11 @@ const AutoPlayer = (props) => {
 
 
     return (
-            <div className="row">
+            <div className={`row bg-opacity-25 bg-${color}`}>
 
                 <div className="col-2 text-center">
                     <PlayerSlot
-                        realPlayer={false}
+                        realPlayer={realPlayer}
                         slotName={"reserveSlot"}
                         deck={deck}
                         setCurrentCard={setCard}
@@ -179,7 +179,7 @@ const AutoPlayer = (props) => {
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
-                        realPlayer={false}
+                        realPlayer={realPlayer}
                         slotName={"tmpSlot1"}
                         deck={deck}
                         setCurrentCard={setCard}
@@ -188,7 +188,7 @@ const AutoPlayer = (props) => {
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
-                        realPlayer={false}
+                        realPlayer={realPlayer}
                         slotName={"tmpSlot2"}
                         deck={deck}
                         setCurrentCard={setCard}
@@ -197,7 +197,7 @@ const AutoPlayer = (props) => {
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
-                        realPlayer={false}
+                        realPlayer={realPlayer}
                         slotName={"tmpSlot3"}
                         deck={deck}
                         setCurrentCard={setCard}
@@ -206,7 +206,7 @@ const AutoPlayer = (props) => {
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
-                        realPlayer={false}
+                        realPlayer={realPlayer}
                         slotName={"rapidoSlot"}
                         deck={deck}
                         setCurrentCard={setCard}
@@ -216,6 +216,7 @@ const AutoPlayer = (props) => {
                 </div>
 
                 <div className="col-2 text-center">
+                    <i className="fa fa-user" aria-hidden="true"></i>
                     {playerIndex}
                 </div>
 

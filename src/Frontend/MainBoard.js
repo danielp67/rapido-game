@@ -42,7 +42,14 @@ const MainBoard = () => {
     }
 
     return (
-        <div className="">
+        <div className="row">
+            <div className="row card">
+                <h1 className="text-center">Rapido Game</h1>
+                <Timer
+                    start={true}
+                    stop={stop}
+                />
+            </div>
             <div className="row">
                 <DropZone
                     setSelectedSlot={setSlot}
@@ -71,10 +78,7 @@ const MainBoard = () => {
                     <div className="col-4">
 
                     <SecondMenu/>
-                    <Timer
-                        start={true}
-                    stop={stop}
-                    />
+
 
                     </div>
 

@@ -1,15 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class SecondMenu extends Component {
-
-    render() {
+const SecondMenu = () => {
 
         return (
-            <div className="col-4 bg-warning">
-                <h1 className="text-center">SecondMenu Slot</h1>
+            <div className="row bg-warning text-dark bg-opacity-50">
+                <i className="fa fa-play" aria-hidden="true"></i>
+
+                <i className="fa fa-pause" aria-hidden="true"></i>
+
+                <i className="fa fa-sign-in" aria-hidden="true"></i>
+
             </div>
         )
-    }
 }
 
 export default SecondMenu;

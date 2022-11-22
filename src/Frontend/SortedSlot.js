@@ -21,7 +21,7 @@ if(enter)
                  onDragEnter={() => dragEnter()}
                  onDragLeave={() => dragLeave()}
             >
-                <h1 className="text-center">{droppedCard[0].value} X</h1>
+                <h1 className="text-center my-auto">{droppedCard[0].value} X</h1>
             </div>
         )
 

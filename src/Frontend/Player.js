@@ -151,6 +151,7 @@ const Player = (props) => {
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
+                        realPlayer={realPlayer}
                         slotName={"tmpSlot1"}
                         deck={deck}
                         setCurrentCard={setCard}
@@ -159,6 +160,7 @@ const Player = (props) => {
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
+                        realPlayer={realPlayer}
                         slotName={"tmpSlot2"}
                         deck={deck}
                         setCurrentCard={setCard}
@@ -167,6 +169,7 @@ const Player = (props) => {
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
+                        realPlayer={realPlayer}
                         slotName={"tmpSlot3"}
                         deck={deck}
                         setCurrentCard={setCard}
@@ -175,6 +178,7 @@ const Player = (props) => {
                 </div>
                 <div className="col-2 text-center">
                     <PlayerSlot
+                        realPlayer={realPlayer}
                         slotName={"rapidoSlot"}
                         deck={deck}
                         setCurrentCard={setCard}
