@@ -79,6 +79,10 @@ const AutoPlayer = (props) => {
         setCurrentCard(props)
     };
 
+    const drop = () => {
+
+    }
+
 
     const checkCardDroppable = () => {
 
@@ -120,7 +124,7 @@ const AutoPlayer = (props) => {
                     {
                         console.log("winner")
                         gameStop(playerIndex)
-                        tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary", playerIndex: "X"})
+                        tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
                     }
 
 
@@ -168,7 +172,7 @@ const AutoPlayer = (props) => {
                         slotName={"reserveSlot"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={""}
+                        drop={drop}
                     />
                     {deck["reserveSlot"].length}
 
@@ -179,7 +183,7 @@ const AutoPlayer = (props) => {
                         slotName={"tmpSlot1"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={""}
+                        drop={drop}
                     />
                 </div>
                 <div className="col-2 text-center">
@@ -188,7 +192,7 @@ const AutoPlayer = (props) => {
                         slotName={"tmpSlot2"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={""}
+                        drop={drop}
                     />
                 </div>
                 <div className="col-2 text-center">
@@ -197,7 +201,7 @@ const AutoPlayer = (props) => {
                         slotName={"tmpSlot3"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={""}
+                        drop={drop}
                     />
                 </div>
                 <div className="col-2 text-center">
@@ -206,7 +210,7 @@ const AutoPlayer = (props) => {
                         slotName={"rapidoSlot"}
                         deck={deck}
                         setCurrentCard={setCard}
-                        drop={""}
+                        drop={drop}
                     />
                     {deck["rapidoSlot"].length}
                 </div>
