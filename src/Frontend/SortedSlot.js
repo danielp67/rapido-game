@@ -17,22 +17,28 @@ const SortedSlot = (props) => {
 if(enter)
 {
         return (
-            <div className={`col-3 border border-success rounded bg-${droppedCard[0].suit}`}
+            <div className={`col-3 bg-secondary bg-opacity-50`}
                  onDragEnter={() => dragEnter()}
                  onDragLeave={() => dragLeave()}
             >
-                <h1 className="text-center my-auto">{droppedCard[0].value} X</h1>
-            </div>
+                    <div className={`card sortedSlotCard border border-dark border-2 my-2 bg-${droppedCard[0].suit}`}>
+                        <p className="my-auto fs-2 fw-bold">{droppedCard[0].value}</p>
+
+                    </div>
+                </div>
         )
 
     }
 else
 {
     return (
-        <div className={`col-3 border border-success rounded bg-${droppedCard[0].suit}`}
+        <div className={`col-3`}
              onDragEnter={() => dragEnter()}
         >
-            <h1 className="text-center">{droppedCard[0].value}</h1>
+            <div className={`card sortedSlotCard my-2 bg-${droppedCard[0].suit}`}>
+                <p className="my-auto fs-2 fw-bold">{droppedCard[0].value}</p>
+
+        </div>
         </div>
     )
 }

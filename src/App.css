@@ -9,8 +9,8 @@ body{
 }
 
 .playerCard{
-  height: 100px;
-  width: 60px;
+  height: 80px;
+  width: 55px;
 }
 
 
@@ -19,4 +19,9 @@ body{
   width: 30px;
 }
 
+.sortedSlotCard{
+  height: 80px;
+  width: 55px;
+  margin: auto;
+}
 

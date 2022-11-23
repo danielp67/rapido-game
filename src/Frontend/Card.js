@@ -15,7 +15,7 @@ const Card = (props) => {
     }
     if(slotName==="rapidoSlot")
     {
-        className="border border-secondary border-3"
+        className="border border-secondary border-2"
     }
 
 
@@ -27,7 +27,7 @@ const Card = (props) => {
                 onDragEnd={drop}
                 draggable
             >
-                <p className="my-auto">{card.value}</p>
+                <p className="my-auto fs-3 fw-bold">{card.value}</p>
             </div>
 
         )
