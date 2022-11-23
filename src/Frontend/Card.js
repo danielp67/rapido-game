@@ -8,10 +8,21 @@ const Card = (props) => {
         console.log('dragStart',card, slotName);
     };
 
+    let className=""
+    if(slotName==="reserveSlot")
+    {
+        className="border border-dark border-2"
+    }
+    if(slotName==="rapidoSlot")
+    {
+        className="border border-secondary border-3"
+    }
+
+
     if(realPlayer) {
         return (
             <div
-                className={`card playerCard bg-${card.suit}`}
+                className={`card playerCard bg-${card.suit} ${className}`}
                 onDragStart={(e) => dragStart(e)}
                 onDragEnd={drop}
                 draggable
@@ -24,7 +35,7 @@ const Card = (props) => {
     else{
         return (
             <div
-                className={`card autoPlayerCard my-auto bg-${card.suit}`}
+                className={`card autoPlayerCard my-auto bg-${card.suit} ${className}`}
             >
                 <p className="my-auto">{card.value}</p>
             </div>

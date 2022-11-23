@@ -133,7 +133,7 @@ const Player = (props) => {
     return (
             <div className="row">
 
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"reserveSlot"}
@@ -149,7 +149,7 @@ const Player = (props) => {
                     {deck["reserveSlot"].length}
 
                 </div>
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"tmpSlot1"}
@@ -158,7 +158,7 @@ const Player = (props) => {
                         drop={drop}
                     />
                 </div>
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"tmpSlot2"}
@@ -167,7 +167,7 @@ const Player = (props) => {
                         drop={drop}
                     />
                 </div>
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"tmpSlot3"}
@@ -176,7 +176,7 @@ const Player = (props) => {
                         drop={drop}
                     />
                 </div>
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"rapidoSlot"}
@@ -187,9 +187,10 @@ const Player = (props) => {
                     {deck["rapidoSlot"].length}
                 </div>
 
-                    <div className="col-2 text-center">
-                        {playerIndex}
-                    </div>
+                <div className="col-2 my-3 text-center">
+                    <i className="fa fa-user" aria-hidden="true"></i>
+                    {playerIndex}
+                </div>
 
             </div>
     )

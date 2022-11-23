@@ -10,6 +10,10 @@ const SecondMenu = () => {
 
                 <i className="fa fa-sign-in" aria-hidden="true"></i>
 
+                <i className="fa fa-trophy" aria-hidden="true"></i>
+
+                <i className="fa fa-cog" aria-hidden="true"></i>
+
             </div>
         )
 }

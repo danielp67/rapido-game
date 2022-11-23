@@ -166,7 +166,7 @@ const AutoPlayer = (props) => {
     return (
             <div className={`row bg-opacity-25 bg-${color}`}>
 
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"reserveSlot"}
@@ -177,7 +177,7 @@ const AutoPlayer = (props) => {
                     {deck["reserveSlot"].length}
 
                 </div>
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"tmpSlot1"}
@@ -186,7 +186,7 @@ const AutoPlayer = (props) => {
                         drop={drop}
                     />
                 </div>
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"tmpSlot2"}
@@ -195,7 +195,7 @@ const AutoPlayer = (props) => {
                         drop={drop}
                     />
                 </div>
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"tmpSlot3"}
@@ -204,7 +204,7 @@ const AutoPlayer = (props) => {
                         drop={drop}
                     />
                 </div>
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"rapidoSlot"}
@@ -215,7 +215,7 @@ const AutoPlayer = (props) => {
                     {deck["rapidoSlot"].length}
                 </div>
 
-                <div className="col-2 text-center">
+                <div className="col-2 my-3 text-center">
                     <i className="fa fa-user" aria-hidden="true"></i>
                     {playerIndex}
                 </div>

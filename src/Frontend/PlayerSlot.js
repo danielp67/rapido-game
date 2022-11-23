@@ -17,8 +17,9 @@ const PlayerSlot = (props) => {
     };
 
 
+
+
         return (
-            <div className="my-2">
                 <Card
                     card={deck[slotName][0]}
                     realPlayer={realPlayer}
@@ -26,7 +27,6 @@ const PlayerSlot = (props) => {
                     setCurrentCard={setCurrentCard}
                     drop={drop}
                 />
-            </div>
         )
 
 
