@@ -18,6 +18,7 @@ const AutoPlayer = (props) => {
             tmpSlot3: []
         }
     )
+    const playerSlot =  ["initialDeck", "reserveSlot", "tmpSlot1", "tmpSlot2", "tmpSlot3", "rapidoSlot"]
 
 
     const initDeck = () => {
@@ -59,10 +60,10 @@ const AutoPlayer = (props) => {
                 initialDeck: initalDeck,
                // reserveDeck: [],
                 reserveSlot: reserveSlot,
-                rapidoSlot: rapidoSlot,
                 tmpSlot1: tmpSlot1,
                 tmpSlot2: tmpSlot2,
-                tmpSlot3: tmpSlot3
+                tmpSlot3: tmpSlot3,
+                rapidoSlot: rapidoSlot,
             }
         )
 
@@ -89,7 +90,6 @@ const AutoPlayer = (props) => {
         let isCardDropped = false
         let tmpDroppedCard = [...droppedCard]
 
-        const playerSlot =  ["initialDeck", "reserveSlot", "rapidoSlot", "tmpSlot1", "tmpSlot2", "tmpSlot3"]
 
         for(let i = 0; i<tmpDroppedCard.length;i++)
         {
@@ -164,61 +164,37 @@ const AutoPlayer = (props) => {
 
 
     return (
-            <div className={`row text-center bg-opacity-25 bg-${color}`}>
+            <div className={`row text-center bg-opacity-50 bg-${color}`}>
 
-                <div className="col-2 my-3 ">
-                    <PlayerSlot
-                        realPlayer={realPlayer}
-                        slotName={"reserveSlot"}
-                        deck={deck}
-                        setCurrentCard={setCard}
-                        drop={drop}
-                    />
-                    {deck["reserveSlot"].length}
+                {playerSlot.map((mapping, index) => {
+                    if(mapping === "initialDeck")
+                    {
+                        return null
+                    }
+                    else{
+                        return(
 
-                </div>
-                <div className="col-2 my-3 ">
-                    <PlayerSlot
-                        realPlayer={realPlayer}
-                        slotName={"tmpSlot1"}
-                        deck={deck}
-                        setCurrentCard={setCard}
-                        drop={drop}
-                    />
-                </div>
-                <div className="col-2 my-3 ">
-                    <PlayerSlot
-                        realPlayer={realPlayer}
-                        slotName={"tmpSlot2"}
-                        deck={deck}
-                        setCurrentCard={setCard}
-                        drop={drop}
-                    />
-                </div>
-                <div className="col-2 my-3 ">
-                    <PlayerSlot
-                        realPlayer={realPlayer}
-                        slotName={"tmpSlot3"}
-                        deck={deck}
-                        setCurrentCard={setCard}
-                        drop={drop}
-                    />
-                </div>
-                <div className="col-2 my-3 ">
-                    <PlayerSlot
-                        realPlayer={realPlayer}
-                        slotName={"rapidoSlot"}
-                        deck={deck}
-                        setCurrentCard={setCard}
-                        drop={drop}
-                    />
-                    {deck["rapidoSlot"].length}
-                </div>
+                            <div key={index} className="col-2 my-4">
+                                <PlayerSlot
+                                    realPlayer={realPlayer}
+                                    slotName={mapping}
+                                    deck={deck}
+                                    setCurrentCard={setCard}
+                                    drop={drop}
+                                />
+                                {mapping==="reserveSlot" || mapping==="rapidoSlot" ? deck[mapping].length : null }
+                            </div>
+                        )
+                    }
+                })}
 
                 <div className="col-2 my-3 ">
                     <i className="fa fa-user" aria-hidden="true"></i>
                     {playerIndex}
                 </div>
+
+
+
 
             </div>
     )

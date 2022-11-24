@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Player from "./Player";
 import AutoPlayer from "./AutoPlayer";
 
 const Bots = (props) => {
@@ -14,7 +13,7 @@ const Bots = (props) => {
     }
 
         return (
-            <div className="col-4 bg-secondary bg-opacity-25">
+            <div className="col-4">
                 <AutoPlayer
                     realPlayer={false}
                     playerIndex={1}
