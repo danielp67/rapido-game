@@ -43,7 +43,7 @@ const MainBoard = () => {
 
     return (
         <div className="row">
-            <div className="row card">
+            <div className="row">
                 <h1 className="text-center">Rapido Game</h1>
                 <Timer
                     start={true}
@@ -51,15 +51,22 @@ const MainBoard = () => {
                 />
             </div>
             <div className="row">
+                <div className="col-8">
+
                 <DropZone
                     setSelectedSlot={setSlot}
                     droppedCard={droppedCard}
                 />
-                <Bots
+                </div>
+
+                    <div className="col-4">
+
+                    <Bots
                     droppedCard={droppedCard}
                     setDroppedCard={drop}
                     gameStop={gameStop}
                 />
+            </div>
             </div>
 
             <div className="row">

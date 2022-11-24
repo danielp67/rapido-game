@@ -5,7 +5,7 @@ const Bots = (props) => {
 
     const {droppedCard, setDroppedCard, gameStop} = props
     const [stop, setStop] = useState(false)
-
+    const color=["primary", "success", "danger"]
     const stopAutoPlayer = (props) => {
 
         setStop(true)
@@ -13,36 +13,26 @@ const Bots = (props) => {
     }
 
         return (
-            <div className="col-4">
-                <AutoPlayer
-                    realPlayer={false}
-                    playerIndex={1}
-                    color={"primary"}
-                    droppedCard={droppedCard}
-                    setDroppedCard={setDroppedCard}
-                    gameStop={stopAutoPlayer}
-                    stop={stop}
-                />
-                <AutoPlayer
-                    realPlayer={false}
-                    playerIndex={2}
-                    color={"success"}
-                    droppedCard={droppedCard}
-                    setDroppedCard={setDroppedCard}
-                    gameStop={stopAutoPlayer}
-                    stop={stop}
-                />
-                <AutoPlayer
-                    realPlayer={false}
-                    playerIndex={3}
-                    color={"danger"}
-                    droppedCard={droppedCard}
-                    setDroppedCard={setDroppedCard}
-                    gameStop={stopAutoPlayer}
-                    stop={stop}
-                />
-            </div>
-        )
+            <>
+                { color.map((color, index) => {
+
+                return(
+                    <AutoPlayer
+                        key={index}
+                        realPlayer={false}
+                        playerIndex={index+1}
+                        color={color}
+                        droppedCard={droppedCard}
+                        setDroppedCard={setDroppedCard}
+                        gameStop={stopAutoPlayer}
+                        stop={stop}
+                    />
+
+                )
+            }
+)}
+            </>)
+
 }
 
 

@@ -6,8 +6,7 @@ const DropZone = (props) => {
     const {setSelectedSlot, droppedCard} = props
 
     return (
-        <div className="col-8 bg-secondary bg-opacity-25 text-center">
-            <div className="row">
+        <div className="row bg-secondary bg-opacity-25 text-center">
 
                 {
                     droppedCard.map((mapping, index) => {
@@ -21,8 +20,6 @@ const DropZone = (props) => {
                       )
                     })
                 }
-
-            </div>
 
         </div>
     )

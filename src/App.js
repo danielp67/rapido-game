@@ -4,7 +4,7 @@ import MainBoard from "./Frontend/MainBoard";
 
 function App() {
     return (
-        <div className="container">
+        <div className="container-fluid">
                 <MainBoard/>
         </div>
 
