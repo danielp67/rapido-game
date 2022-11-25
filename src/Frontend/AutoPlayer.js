@@ -5,7 +5,7 @@ import Scoring from "./Scoring";
 
 const AutoPlayer = (props) => {
 
-    const {realPlayer, playerIndex, color, droppedCard, setDroppedCard, stop, gameStop, setScore} = props
+    const {realPlayer, playerIndex, color, selectedSlot, setSelectedSlot, droppedCard, setDroppedCard, stop, gameStop, setScore} = props
     const [currentCard, setCurrentCard] = useState({})
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [deck, setDeck] = useState(
@@ -81,6 +81,43 @@ const AutoPlayer = (props) => {
     };
 
     const drop = () => {
+        let tmpDroppedCard = [...droppedCard]
+        if(selectedSlot!=="")
+        {
+
+            let previousCard = tmpDroppedCard[selectedSlot][0]
+            let slotName = currentCard.slotName
+
+            if (
+                (previousCard.value + 1 === currentCard.card.value &&
+                    previousCard.suit === currentCard.card.suit) ||
+                (previousCard.value === 0 && currentCard.card.value === 1)
+
+            ) {
+
+                let tmpDeck = {...deck}
+                tmpDeck[slotName].shift()
+
+                if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
+                {
+                    let tmp = tmpDeck["rapidoSlot"].shift()
+                    tmpDeck[slotName].unshift(tmp)
+
+                }
+                if(tmpDeck["rapidoSlot"].length === 0)
+                {
+                    console.log("winner")
+
+                    tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
+                }
+
+                setDeck(tmpDeck)
+                tmpDroppedCard[selectedSlot].unshift(currentCard.card)
+                setDroppedCard(tmpDroppedCard)
+                setSelectedSlot("")
+
+            }
+        }
 
     }
 
@@ -145,7 +182,7 @@ const AutoPlayer = (props) => {
 
     const sendScore = () => {
         let tmpDeck = {...deck}
-        let score = 40 - tmpDeck.reserveSlot.length
+        let score = 30 - tmpDeck.reserveSlot.length
             - tmpDeck.tmpSlot1.length
             - tmpDeck.tmpSlot2.length
         - tmpDeck.tmpSlot3.length
@@ -168,7 +205,7 @@ const AutoPlayer = (props) => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if(!stop)
+            if(!stop && !realPlayer)
             {
                 checkCardDroppable()
             }
