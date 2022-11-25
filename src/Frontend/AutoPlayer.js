@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import NextButton from "./NextButton";
 import PlayerSlot from "./PlayerSlot";
+import Scoring from "./Scoring";
 
 const AutoPlayer = (props) => {
 
@@ -151,7 +152,6 @@ const AutoPlayer = (props) => {
             - (tmpDeck.rapidoSlot[0].value !== "X" ? tmpDeck.rapidoSlot.length * 2 : 0)
 
         setScore({playerIndex: playerIndex, score:score})
-
 
     }
 
