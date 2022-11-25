@@ -4,6 +4,7 @@ import DropZone from "./DropZone";
 import SecondMenu from "./SecondMenu";
 import Timer from "./Timer";
 import Player from "./Player";
+import MainMenu from "./MainMenu";
 
 const MainBoard = () => {
 
@@ -66,14 +67,14 @@ let tmpScoring = [...scoring]
             </div>
 
             <div className="row">
-                <div className="col-8 col-md-5 col-lg-5 offset-md-2">
+                <div className="col-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
                     <DropZone
                         setSelectedSlot={setSlot}
                         droppedCard={droppedCard}
                     />
                 </div>
 
-                <div className="col-4 col-md-3">
+                <div className="col-4 col-md-3 col-xl-2">
                     <Bots
                         droppedCard={droppedCard}
                         setDroppedCard={drop}
@@ -84,7 +85,7 @@ let tmpScoring = [...scoring]
             </div>
 
             <div className="row">
-                <div className="col-8 col-md-5 col-lg-5 offset-md-2">
+                <div className="col-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
                     <Player
                         realPlayer={true}
                         playerIndex={4}
@@ -97,8 +98,8 @@ let tmpScoring = [...scoring]
                         setScore={setScore}
                     />
                 </div>
-                <div className="col-4 col-md-3">
-                    <SecondMenu/>
+                <div className="col-4 col-md-3 col-xl-2">
+                    <MainMenu/>
                 </div>
 
             </div>
