@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import AutoPlayer from "./AutoPlayer";
+import Player from "./Player";
 
 const Bots = (props) => {
 
@@ -17,7 +17,7 @@ const Bots = (props) => {
             {color.map((color, index) => {
 
                     return (
-                        <AutoPlayer
+                        <Player
                             key={index}
                             realPlayer={false}
                             playerIndex={index + 1}

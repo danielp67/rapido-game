@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import NextButton from "./NextButton";
 import PlayerSlot from "./PlayerSlot";
-import Scoring from "./Scoring";
 
-const AutoPlayer = (props) => {
+const Player = (props) => {
 
     const {realPlayer, playerIndex, color, selectedSlot, setSelectedSlot, droppedCard, setDroppedCard, stop, gameStop, setScore} = props
     const [currentCard, setCurrentCard] = useState({})
@@ -252,4 +251,4 @@ const AutoPlayer = (props) => {
 }
 
 
-export default AutoPlayer;
+export default Player;

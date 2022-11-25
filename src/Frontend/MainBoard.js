@@ -3,8 +3,7 @@ import Bots from "./Bots";
 import DropZone from "./DropZone";
 import SecondMenu from "./SecondMenu";
 import Timer from "./Timer";
-import Scoring from "./Scoring";
-import AutoPlayer from "./AutoPlayer";
+import Player from "./Player";
 
 const MainBoard = () => {
 
@@ -86,7 +85,7 @@ let tmpScoring = [...scoring]
 
             <div className="row">
                 <div className="col-8 col-md-5 col-lg-5 offset-md-2">
-                    <AutoPlayer
+                    <Player
                         realPlayer={true}
                         playerIndex={4}
                         color={"secondary"}
