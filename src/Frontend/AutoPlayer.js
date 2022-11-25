@@ -229,6 +229,9 @@ const AutoPlayer = (props) => {
                                     setCurrentCard={setCard}
                                     drop={drop}
                                 />
+                                {realPlayer && mapping==="reserveSlot"  ?  <NextButton
+                                    nextCard={nextCard}
+                                /> : null}
                                 {mapping==="reserveSlot" || mapping==="rapidoSlot" ? deck[mapping].length : null }
                             </div>
                         )

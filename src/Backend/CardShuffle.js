@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Player from "../Frontend/Player";
 
 class CardShuffle extends Component {
 

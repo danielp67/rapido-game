@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Player from "./Player";
 import Bots from "./Bots";
 import DropZone from "./DropZone";
 import SecondMenu from "./SecondMenu";
