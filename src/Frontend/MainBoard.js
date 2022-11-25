@@ -4,6 +4,7 @@ import Bots from "./Bots";
 import DropZone from "./DropZone";
 import SecondMenu from "./SecondMenu";
 import Timer from "./Timer";
+import Scoring from "./Scoring";
 
 const MainBoard = () => {
 
@@ -11,6 +12,7 @@ const MainBoard = () => {
     const [droppedCard, setDroppedCard] = useState([])
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [stop, setStop] = useState(false)
+    const [scoring, setScoring] = useState([])
 
     const initDropZone = () => {
         for (let i = 0; i < 16; i++) {
@@ -38,6 +40,14 @@ const MainBoard = () => {
 
     const setScore = (props) => {
         console.log(props)
+const {playerIndex, score} = props
+let tmpScoring = [...scoring]
+
+        tmpScoring[playerIndex]= score
+
+        console.log(tmpScoring)
+       //setScoring(tmpScoring)
+
     }
 
     if (!initMainBoard) {
@@ -88,6 +98,7 @@ const MainBoard = () => {
                 <div className="col-4 col-md-3">
                     <SecondMenu/>
                 </div>
+
             </div>
         </>
     )

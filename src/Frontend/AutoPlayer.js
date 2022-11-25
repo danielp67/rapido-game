@@ -47,7 +47,6 @@ const AutoPlayer = (props) => {
         let tmpReserveSlot = [...tmpDeck]
         tmpReserveSlot.splice(0, 13)
 
-console.log(tmpDeck)
     //    let initalDeck = tmpDeck
         let reserveSlot = tmpReserveSlot
         let rapidoSlot = tmpDeck.slice(0, 10)
@@ -137,7 +136,6 @@ console.log(tmpDeck)
 
         }
 
-
         if(!isCardDropped)
         {
             nextCard()
@@ -145,7 +143,16 @@ console.log(tmpDeck)
     }
 
     const sendScore = () => {
-        setScore({playerIndex: playerIndex, deck:deck})
+        let tmpDeck = {...deck}
+        let score = 40 - tmpDeck.reserveSlot.length
+            - tmpDeck.tmpSlot1.length
+            - tmpDeck.tmpSlot2.length
+        - tmpDeck.tmpSlot3.length
+            - (tmpDeck.rapidoSlot[0].value !== "X" ? tmpDeck.rapidoSlot.length * 2 : 0)
+
+        setScore({playerIndex: playerIndex, score:score})
+
+
     }
 
     if (!initMainBoard) {
@@ -175,11 +182,6 @@ console.log(tmpDeck)
             <div className={`row text-center bg-opacity-50 bg-${color}`}>
 
                 {playerSlot.map((mapping, index) => {
-                    if(mapping === "initialDeck")
-                    {
-                        return null
-                    }
-                    else{
                         return(
 
                             <div key={index} className="col-2 my-4">
@@ -193,7 +195,6 @@ console.log(tmpDeck)
                                 {mapping==="reserveSlot" || mapping==="rapidoSlot" ? deck[mapping].length : null }
                             </div>
                         )
-                    }
                 })}
 
                 <div className="col-2 my-3 ">

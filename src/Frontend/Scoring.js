@@ -1,47 +1,18 @@
 import React from 'react';
 
 const Scoring = (props) => {
-    const {drop, setCurrentCard, slotName, card, realPlayer} = props
+    const {scoring} = props
 
-    const dragStart = (e) => {
-        setCurrentCard({card:card, slotName:slotName})
-        console.log('dragStart',card, slotName);
-    };
-
-    let className=""
-    if(slotName==="reserveSlot")
-    {
-        className="border border-dark border-2"
-    }
-    if(slotName==="rapidoSlot")
-    {
-        className="border border-secondary border-2"
-    }
-
-
-    if(realPlayer) {
+    console.log(scoring)
+   let playerScore = 14
         return (
             <div
-                className={`card playerCard bg-${card.suit} ${className}`}
-                onDragStart={(e) => dragStart(e)}
-                onDragEnd={drop}
-                draggable
+                className={`card`}
             >
-                <p className="my-auto fs-3 fw-bold">{card.value}</p>
+                <p className="my-auto fs-3 fw-bold">{playerScore}</p>
             </div>
 
         )
-    }
-    else{
-        return (
-            <div
-                className={`card autoPlayerCard my-auto bg-${card.suit} ${className}`}
-            >
-                <p className="my-auto">{card.value}</p>
-            </div>
-
-        )
-    }
 
 }
 

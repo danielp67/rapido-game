@@ -5,13 +5,12 @@ import PlayerSlot from "./PlayerSlot";
 const Player = (props) => {
 
     const {realPlayer, playerIndex, selectedSlot, setSelectedSlot, droppedCard, setDroppedCard} = props
-
     const [currentCard, setCurrentCard] = useState({})
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [deck, setDeck] = useState(
         {
-            initialDeck: [],
-            reserveDeck: [],
+         //   initialDeck: [],
+         //   reserveDeck: [],
             reserveSlot: [],
             rapidoSlot: [],
             tmpSlot1: [],
@@ -48,7 +47,7 @@ const Player = (props) => {
         tmpReserveSlot.splice(0, 13)
 
 
-        let initalDeck = tmpDeck
+       // let initalDeck = tmpDeck
         let reserveSlot = tmpReserveSlot
         let rapidoSlot = tmpDeck.slice(0, 10)
         let tmpSlot1 = tmpDeck.slice(10, 11)
@@ -57,8 +56,8 @@ const Player = (props) => {
 
         setDeck(
             {
-                initialDeck: initalDeck,
-                reserveDeck: [],
+             //   initialDeck: initalDeck,
+            //    reserveDeck: [],
                 reserveSlot: reserveSlot,
                 rapidoSlot: rapidoSlot,
                 tmpSlot1: tmpSlot1,
@@ -108,7 +107,7 @@ const Player = (props) => {
                 {
                     console.log("winner")
 
-                    tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary", playerIndex: "X"})
+                    tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
                 }
 
                 setDeck(tmpDeck)
