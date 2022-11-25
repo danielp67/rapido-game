@@ -130,9 +130,9 @@ const Player = (props) => {
 
 
     return (
-            <div className="row text-center">
+            <div className="row text-center bg-secondary bg-opacity-50">
 
-                <div className="col-2 my-3 ">
+                <div className="col-2 my-3">
                     <PlayerSlot
                         realPlayer={realPlayer}
                         slotName={"reserveSlot"}

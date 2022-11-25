@@ -4,12 +4,12 @@ import PlayerSlot from "./PlayerSlot";
 
 const AutoPlayer = (props) => {
 
-    const {realPlayer, playerIndex, color, droppedCard, setDroppedCard, stop, gameStop} = props
+    const {realPlayer, playerIndex, color, droppedCard, setDroppedCard, stop, gameStop, setScore} = props
     const [currentCard, setCurrentCard] = useState({})
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [deck, setDeck] = useState(
         {
-            initialDeck: [],
+       //     initialDeck: [],
      //       reserveDeck: [],
             reserveSlot: [],
             rapidoSlot: [],
@@ -18,14 +18,14 @@ const AutoPlayer = (props) => {
             tmpSlot3: []
         }
     )
-    const playerSlot =  ["initialDeck", "reserveSlot", "tmpSlot1", "tmpSlot2", "tmpSlot3", "rapidoSlot"]
+    const playerSlot =  ["reserveSlot", "tmpSlot1", "tmpSlot2", "tmpSlot3", "rapidoSlot"]
 
 
     const initDeck = () => {
         const suits = ["primary", "success", "warning", "danger"];
         const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        //   const suits = ["primary", "success"];
-        // const values = [1,2];
+         //  const suits = ["primary", "success"];
+       //  const values = [1,2];
         let tmpDeck = []
 // create a deck of cards
         for (let i = 0; i < suits.length; i++) {
@@ -47,8 +47,8 @@ const AutoPlayer = (props) => {
         let tmpReserveSlot = [...tmpDeck]
         tmpReserveSlot.splice(0, 13)
 
-
-        let initalDeck = tmpDeck
+console.log(tmpDeck)
+    //    let initalDeck = tmpDeck
         let reserveSlot = tmpReserveSlot
         let rapidoSlot = tmpDeck.slice(0, 10)
         let tmpSlot1 = tmpDeck.slice(10, 11)
@@ -57,7 +57,7 @@ const AutoPlayer = (props) => {
 
         setDeck(
             {
-                initialDeck: initalDeck,
+              //  initialDeck: initalDeck,
                // reserveDeck: [],
                 reserveSlot: reserveSlot,
                 tmpSlot1: tmpSlot1,
@@ -144,11 +144,19 @@ const AutoPlayer = (props) => {
         }
     }
 
+    const sendScore = () => {
+        setScore({playerIndex: playerIndex, deck:deck})
+    }
 
     if (!initMainBoard) {
         initDeck()
         setInitMainBoard(true)
 
+    }
+
+    if(stop)
+    {
+        sendScore()
     }
 
     useEffect(() => {
