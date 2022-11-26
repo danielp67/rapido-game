@@ -6,12 +6,12 @@ const SettingsMenu = () => {
 
         <>
 
-            <button type="button" className="btn btn-primary col-4 m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" className="btn btn-primary col-4 m-2" data-bs-toggle="modal" data-bs-target="#staticBackdropSettings">
                 <i className="fa fa-cog" aria-hidden="true"></i>
             </button>
 
 
-            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+            <div className="modal fade" id="staticBackdropSettings" data-bs-backdrop="static" data-bs-keyboard="false"
                  tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered modal-fullscreen-down modal-dialog-scrollable">
                     <div className="modal-content">
@@ -23,23 +23,23 @@ const SettingsMenu = () => {
                             Nombre de joueurs :
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name="flexRadioNbPlayer"
-                                       id="flexRadioNbPlayer1"/>
+                                       id="flexRadioNbPlayer1" defaultChecked/>
                                 <label className="form-check-label" htmlFor="flexRadioNbPlayer1">
-                                    Easy
+                                    4
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name="flexRadioNbPlayer"
-                                       id="flexRadioNbPlayer2" checked/>
+                                       id="flexRadioNbPlayer2"/>
                                 <label className="form-check-label" htmlFor="flexRadioNbPlayer2">
-                                    Medium
+                                    8
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name="flexRadioNbPlayer"
                                        id="flexRadioNbPlayer3"/>
                                 <label className="form-check-label" htmlFor="flexRadioNbPlayer3">
-                                    Hard
+                                    12
                                 </label>
                             </div>
 
@@ -54,7 +54,7 @@ const SettingsMenu = () => {
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name="flexRadioLevel"
-                                       id="flexRadioLevel2" checked/>
+                                       id="flexRadioLevel2" defaultChecked/>
                                 <label className="form-check-label" htmlFor="flexRadioLevel2">
                                     Medium
                                 </label>

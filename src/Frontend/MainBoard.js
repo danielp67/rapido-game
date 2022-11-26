@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Bots from "./Bots";
 import DropZone from "./DropZone";
-import SecondMenu from "./SecondMenu";
 import Timer from "./Timer";
 import Player from "./Player";
 import MainMenu from "./MainMenu";
@@ -40,13 +39,11 @@ const MainBoard = () => {
 
     const setScore = (props) => {
         console.log(props)
-const {playerIndex, score} = props
-let tmpScoring = [...scoring]
+        let tmpScoring = [...scoring]
 
-        tmpScoring[playerIndex]= score
-
+    tmpScoring.push(props)
         console.log(tmpScoring)
-       //setScoring(tmpScoring)
+      // setScoring(tmpScoring)
 
     }
 

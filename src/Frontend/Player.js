@@ -187,7 +187,7 @@ const Player = (props) => {
         - tmpDeck.tmpSlot3.length
             - (tmpDeck.rapidoSlot[0].value !== "X" ? tmpDeck.rapidoSlot.length * 2 : 0)
 
-        setScore({playerIndex: playerIndex, score:score})
+        setScore({playerIndex: playerIndex, currentScore:score})
 
     }
 
