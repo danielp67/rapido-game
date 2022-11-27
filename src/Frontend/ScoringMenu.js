@@ -17,7 +17,9 @@ const ScoringMenu = (props) => {
                 <div className="modal-dialog modal-dialog-centered modal-fullscreen-down modal-dialog-scrollable">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="staticBackdropLabel">Score</h1>
+                            <h1 className="modal-title fs-5" id="staticBackdropLabel">
+                                Score - <i className="fa fa-trophy" aria-hidden="true"></i>
+                            </h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                         </div>
                         <div className="modal-body">

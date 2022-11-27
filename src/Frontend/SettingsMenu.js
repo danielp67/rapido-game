@@ -16,7 +16,9 @@ const SettingsMenu = () => {
                 <div className="modal-dialog modal-dialog-centered modal-fullscreen-down modal-dialog-scrollable">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="staticBackdropLabel">Settings</h1>
+                            <h1 className="modal-title fs-5" id="staticBackdropLabel">
+                                Settings - <i className="fa fa-cog" aria-hidden="true"></i>
+                            </h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                         </div>
                         <div className="modal-body">
@@ -76,7 +78,7 @@ const SettingsMenu = () => {
                             </div>
                             <div className="form-check form-switch">
                                 <input className="form-check-input" type="checkbox" role="switch"
-                                       id="flexSwitchCheckDefault"/>
+                                       id="flexSwitchCheckDefault" defaultChecked/>
                                 <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Timer</label>
                             </div>
 

@@ -12,6 +12,7 @@ const MainBoard = () => {
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [stop, setStop] = useState(false)
     const [scoring, setScoring] = useState([])
+    const tmpScoring = []
 
     const initDropZone = () => {
         for (let i = 0; i < 16; i++) {
@@ -38,10 +39,12 @@ const MainBoard = () => {
     }
 
     const setScore = (props) => {
-        console.log(props)
-        let tmpScoring = [...scoring]
+        const {playerIndex, currentScore} = props
+       // let tmpScoring = [...scoring]
+        tmpScoring[playerIndex] = currentScore
+        tmpScoring[0] = tmpScoring.length
 
-    tmpScoring.push(props)
+   // tmpScoring.push(props)
         console.log(tmpScoring)
       // setScoring(tmpScoring)
 

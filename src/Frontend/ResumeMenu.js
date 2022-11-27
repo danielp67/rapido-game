@@ -1,35 +1,35 @@
 import React from 'react';
 
-const SecondMenu = () => {
+const ResumeMenu = () => {
 
         return (
 
             <>
-
-                <button type="button" className="btn btn-primary col-4 m-2" data-bs-toggle="modal" data-bs-target="#staticBackdropSecond">
-                    <i className="fa fa-play" aria-hidden="true"></i>
+                <button type="button" className="btn btn-primary col-4 m-2" data-bs-toggle="modal" data-bs-target="#staticBackdropResume">
+                    <i className="fa fa-pause" aria-hidden="true"></i>
                 </button>
 
 
-                <div className="modal fade" id="staticBackdropSecond" data-bs-backdrop="static" data-bs-keyboard="false"
+                <div className="modal fade" id="staticBackdropResume" data-bs-backdrop="static" data-bs-keyboard="false"
                      tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered modal-fullscreen-down modal-dialog-scrollable">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                                    <i className="fa fa-play" aria-hidden="true"></i> - Menu
+                                    <i className="fa fa-pause" aria-hidden="true"></i> - Pause
+
                                 </h1>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                             </div>
                             <div className="modal-body">
-                                <h4>Rapido game</h4>
+                                <h4>Reprendre la partie ?</h4>
 
 
 
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Settings</button>
-                                <button type="button" className="btn btn-primary">Start</button>
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" className="btn btn-primary">Continue</button>
                             </div>
                         </div>
                     </div>
@@ -40,4 +40,4 @@ const SecondMenu = () => {
         )
 }
 
-export default SecondMenu;
+export default ResumeMenu;
