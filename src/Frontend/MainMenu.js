@@ -5,14 +5,16 @@ import ScoringMenu from "./ScoringMenu";
 import ResumeMenu from "./ResumeMenu";
 import QuitMenu from "./QuitMenu";
 
-const MainMenu = () => {
+const MainMenu = (props) => {
+
+    const {startGame} = props
 
     return (
         <div className="row h-100 bg-warning text-dark bg-opacity-50">
 
             <div className="m-auto">
 
-                <SecondMenu/>
+                <SecondMenu startGame={startGame}/>
                 <ResumeMenu/>
                 <QuitMenu/>
                 <ScoringMenu/>

@@ -1,25 +1,21 @@
 import React from 'react';
+import SecondMenu from "./SecondMenu";
 
 const SettingsMenu = () => {
 
     return (
 
         <>
-
-            <button type="button" className="btn btn-primary col-4 m-2" data-bs-toggle="modal" data-bs-target="#staticBackdropSettings">
-                <i className="fa fa-cog" aria-hidden="true"></i>
-            </button>
-
-
-            <div className="modal fade" id="staticBackdropSettings" data-bs-backdrop="static" data-bs-keyboard="false"
-                 tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered modal-fullscreen-down modal-dialog-scrollable">
+            <div className="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                 aria-labelledby="exampleModalToggleLabel2" tabIndex="-1">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                                Settings - <i className="fa fa-cog" aria-hidden="true"></i>
+                            <h1 className="modal-title fs-5" id="exampleModalToggleLabel2">
+                                <i className="fa fa-cog" aria-hidden="true"/> Settings
                             </h1>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"/>
                         </div>
                         <div className="modal-body">
                             Nombre de joueurs :
@@ -72,21 +68,37 @@ const SettingsMenu = () => {
 
                             <div className="form-check form-switch">
                                 <input className="form-check-input" type="checkbox" role="switch"
-                                       id="flexSwitchCheckChecked"/>
-                                <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Comptage des
-                                    points</label>
+                                       id="switchCountScore"/>
+                                <label className="form-check-label" htmlFor="switchCountScore">
+                                    Comptage des points
+                                </label>
                             </div>
                             <div className="form-check form-switch">
                                 <input className="form-check-input" type="checkbox" role="switch"
-                                       id="flexSwitchCheckDefault" defaultChecked/>
-                                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Timer</label>
+                                       id="switchTimer" defaultChecked/>
+                                <label className="form-check-label" htmlFor="switchTimer">
+                                    Timer
+                                </label>
+                            </div>
+                            <div className="form-check form-switch">
+                                <input className="form-check-input" type="checkbox" role="switch"
+                                       id="switchDarkMode" defaultChecked/>
+                                <label className="form-check-label" htmlFor="switchDarkMode">
+                                    Dark Mode
+                                </label>
                             </div>
 
-                        </div>
 
+                        </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" className="btn btn-primary">Save</button>
+
+                            <button className="btn btn-secondary" data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
+                                Cancel
+                            </button>
+                            <button className="btn btn-primary" data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
+                                Save
+                            </button>
+
                         </div>
                     </div>
                 </div>

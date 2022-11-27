@@ -11,8 +11,12 @@ const MainBoard = () => {
     const [droppedCard, setDroppedCard] = useState([])
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [stop, setStop] = useState(false)
+    const [start, setStart] = useState(false)
+
     const [scoring, setScoring] = useState([])
     const tmpScoring = []
+
+
 
     const initDropZone = () => {
         for (let i = 0; i < 16; i++) {
@@ -40,14 +44,18 @@ const MainBoard = () => {
 
     const setScore = (props) => {
         const {playerIndex, currentScore} = props
-       // let tmpScoring = [...scoring]
         tmpScoring[playerIndex] = currentScore
-        tmpScoring[0] = tmpScoring.length
+    //    tmpScoring[0] = tmpScoring.length
 
-   // tmpScoring.push(props)
         console.log(tmpScoring)
-      // setScoring(tmpScoring)
 
+
+    }
+
+    const startGame = (props) => {
+
+        setStart(props)
+      //  initDropZone()
     }
 
     if (!initMainBoard) {
@@ -61,7 +69,7 @@ const MainBoard = () => {
             <div className="row">
                 <h1 className="text-center">Rapido Game</h1>
                 <Timer
-                    start={true}
+                    start={start}
                     stop={stop}
                 />
             </div>
@@ -76,6 +84,7 @@ const MainBoard = () => {
 
                 <div className="col-4 col-md-3 col-xl-2">
                     <Bots
+                        start={start}
                         droppedCard={droppedCard}
                         setDroppedCard={drop}
                         gameStop={gameStop}
@@ -94,12 +103,15 @@ const MainBoard = () => {
                         setSelectedSlot={setSelectedSlot}
                         droppedCard={droppedCard}
                         setDroppedCard={drop}
+                        start={start}
                         stop={stop}
                         setScore={setScore}
                     />
                 </div>
                 <div className="col-4 col-md-3 col-xl-2">
-                    <MainMenu/>
+                    <MainMenu
+                        startGame={startGame}
+                    />
                 </div>
 
             </div>
