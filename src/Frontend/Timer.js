@@ -33,7 +33,7 @@ const Timer = (props) => {
     else{
         return(
         <div className="text-center">
-                No timer
+            <i className="fa fa-clock-o" aria-hidden="true"/> No timer
          </div>
         )
     }

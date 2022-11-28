@@ -12,7 +12,6 @@ const MainBoard = () => {
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [stop, setStop] = useState(false)
     const [start, setStart] = useState(false)
-    const [timerOn, setTimerOn] = useState(true)
     const [scoring, setScoring] = useState([])
     const tmpScoring = []
     const [settings, sendSettings] = useState(
@@ -83,7 +82,7 @@ const MainBoard = () => {
                 <Timer
                     start={start}
                     stop={stop}
-                    timerOn={timerOn}
+                    timerOn={settings.switchTimer}
                 />
             </div>
 
