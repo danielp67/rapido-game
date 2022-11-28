@@ -64,21 +64,21 @@ if(settings) {
                             <RadioButton
                                 state={state}
                                 name={"level"}
-                                value={"easy"}
+                                value={"3500"}
                                 onChange={handleChange}
                                 label={"Easy"}
                             />
                             <RadioButton
                                 state={state}
                                 name={"level"}
-                                value={"medium"}
+                                value={"2000"}
                                 onChange={handleChange}
                                 label={"Medium"}
                             />
                             <RadioButton
                                 state={state}
                                 name={"level"}
-                                value={"hard"}
+                                value={"1000"}
                                 onChange={handleChange}
                                 label={"Hard"}
                             />

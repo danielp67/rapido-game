@@ -97,10 +97,12 @@ const MainBoard = () => {
                 <div className="col-4 col-md-3 col-xl-2">
                     <Bots
                         start={start}
+                        stop={stop}
                         droppedCard={droppedCard}
                         setDroppedCard={drop}
                         gameStop={gameStop}
                         setScore={setScore}
+                        level={parseInt(settings.level)}
                     />
                 </div>
             </div>
@@ -118,6 +120,7 @@ const MainBoard = () => {
                         start={start}
                         stop={stop}
                         setScore={setScore}
+                        level={parseInt(settings.level)}
                     />
                 </div>
                 <div className="col-4 col-md-3 col-xl-2">

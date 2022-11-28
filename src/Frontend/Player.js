@@ -4,7 +4,7 @@ import PlayerSlot from "./PlayerSlot";
 
 const Player = (props) => {
 
-    const {realPlayer, playerIndex, color, selectedSlot, setSelectedSlot, droppedCard, setDroppedCard, start, stop, gameStop, setScore} = props
+    const {realPlayer, playerIndex, color, selectedSlot, setSelectedSlot, droppedCard, setDroppedCard, start, stop, gameStop, setScore, level} = props
     const [currentCard, setCurrentCard] = useState({})
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [deck, setDeck] = useState(
@@ -204,11 +204,11 @@ const Player = (props) => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if(start && !realPlayer)
+            if(start && !realPlayer && !stop)
             {
                 checkCardDroppable()
             }
-        }, 1000);
+        }, level);
 
         return () => clearTimeout(timer);
     });
