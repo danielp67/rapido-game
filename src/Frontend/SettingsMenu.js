@@ -1,7 +1,33 @@
-import React from 'react';
-import SecondMenu from "./SecondMenu";
+import React, {useState} from 'react';
+import SwitchButton from "./SwitchButton";
+import RadioButton from "./RadioButton";
 
-const SettingsMenu = () => {
+const SettingsMenu = (props) => {
+
+    const {setSettings} = props
+    const [state, setState] = useState(
+        {
+            nbPlayer:"4",
+            level:"hard",
+            switchCountScore : true,
+            switchTimer : true,
+            switchDarkMode : false
+        }
+    )
+
+    const handleChange = (event) => {
+        const {name, value, checked} = event.target
+console.log(name, value, checked)
+        setState((prevState) => ({
+            ...prevState,
+            [name]: value !== "on" ? value : checked,
+        }));
+    }
+
+    const submitForm = () => {
+        console.log('submit', state)
+    }
+
 
     return (
 
@@ -19,75 +45,72 @@ const SettingsMenu = () => {
                         </div>
                         <div className="modal-body">
                             Nombre de joueurs :
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioNbPlayer"
-                                       id="flexRadioNbPlayer1" defaultChecked/>
-                                <label className="form-check-label" htmlFor="flexRadioNbPlayer1">
-                                    4
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioNbPlayer"
-                                       id="flexRadioNbPlayer2"/>
-                                <label className="form-check-label" htmlFor="flexRadioNbPlayer2">
-                                    8
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioNbPlayer"
-                                       id="flexRadioNbPlayer3"/>
-                                <label className="form-check-label" htmlFor="flexRadioNbPlayer3">
-                                    12
-                                </label>
-                            </div>
+                                <RadioButton
+                                    state={state}
+                                    name={"nbPlayer"}
+                                    value={"4"}
+                                    onChange={handleChange}
+                                    label={"4"}
+                                />
+                                <RadioButton
+                                    state={state}
+                                    name={"nbPlayer"}
+                                    value={"8"}
+                                    onChange={handleChange}
+                                    label={"8"}
+                                />
+                                <RadioButton
+                                    state={state}
+                                    name={"nbPlayer"}
+                                    value={"12"}
+                                    onChange={handleChange}
+                                    label={"12"}
+                                />
 
                             <hr/>
                             Level :
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioLevel"
-                                       id="flexRadioLevel1"/>
-                                <label className="form-check-label" htmlFor="flexRadioLevel1">
-                                    Easy
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioLevel"
-                                       id="flexRadioLevel2" defaultChecked/>
-                                <label className="form-check-label" htmlFor="flexRadioLevel2">
-                                    Medium
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioLevel"
-                                       id="flexRadioLevel3"/>
-                                <label className="form-check-label" htmlFor="flexRadioLevel3">
-                                    Hard
-                                </label>
-                            </div>
+                            <RadioButton
+                                state={state}
+                                name={"level"}
+                                value={"easy"}
+                                onChange={handleChange}
+                                label={"Easy"}
+                            />
+                            <RadioButton
+                                state={state}
+                                name={"level"}
+                                value={"medium"}
+                                onChange={handleChange}
+                                label={"Medium"}
+                            />
+                            <RadioButton
+                                state={state}
+                                name={"level"}
+                                value={"hard"}
+                                onChange={handleChange}
+                                label={"Hard"}
+                            />
                             <hr/>
 
-                            <div className="form-check form-switch">
-                                <input className="form-check-input" type="checkbox" role="switch"
-                                       id="switchCountScore"/>
-                                <label className="form-check-label" htmlFor="switchCountScore">
-                                    Comptage des points
-                                </label>
-                            </div>
-                            <div className="form-check form-switch">
-                                <input className="form-check-input" type="checkbox" role="switch"
-                                       id="switchTimer" defaultChecked/>
-                                <label className="form-check-label" htmlFor="switchTimer">
-                                    Timer
-                                </label>
-                            </div>
-                            <div className="form-check form-switch">
-                                <input className="form-check-input" type="checkbox" role="switch"
-                                       id="switchDarkMode" defaultChecked/>
-                                <label className="form-check-label" htmlFor="switchDarkMode">
-                                    Dark Mode
-                                </label>
-                            </div>
 
+                            <SwitchButton
+                                state={state}
+                                name={"switchCountScore"}
+                                onChange={handleChange}
+                                label={"Comptage des points"}
+                            />
+                            <SwitchButton
+                                state={state}
+                                name={"switchTimer"}
+                                onChange={handleChange}
+                                label={"Timer"}
+                            />
+                            <SwitchButton
+                                state={state}
+                                name={"switchDarkMode"}
+                                onChange={handleChange}
+                                label={"Dark Mode"}
+                            />
 
                         </div>
                         <div className="modal-footer">
@@ -95,7 +118,7 @@ const SettingsMenu = () => {
                             <button className="btn btn-secondary" data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
                                 Cancel
                             </button>
-                            <button className="btn btn-primary" data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
+                            <button onClick={submitForm} className="btn btn-primary" data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
                                 Save
                             </button>
 

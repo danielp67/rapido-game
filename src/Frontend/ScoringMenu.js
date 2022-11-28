@@ -7,7 +7,7 @@ const ScoringMenu = (props) => {
         <>
 
             <button type="button" className="btn btn-primary col-4 m-2" data-bs-toggle="modal" data-bs-target="#staticBackdropScoring">
-                <i className="fa fa-trophy" aria-hidden="true"></i>
+                <i className="fa fa-trophy" aria-hidden="true"/>
             </button>
 
 
@@ -18,7 +18,7 @@ const ScoringMenu = (props) => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                                Score - <i className="fa fa-trophy" aria-hidden="true"></i>
+                                <i className="fa fa-trophy" aria-hidden="true"/> Score
                             </h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
                         </div>

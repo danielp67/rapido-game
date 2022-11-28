@@ -6,7 +6,7 @@ const ResumeMenu = () => {
 
             <>
                 <button type="button" className="btn btn-primary col-4 m-2" data-bs-toggle="modal" data-bs-target="#staticBackdropResume">
-                    <i className="fa fa-pause" aria-hidden="true"></i>
+                    <i className="fa fa-pause" aria-hidden="true"/>
                 </button>
 
 
@@ -16,7 +16,7 @@ const ResumeMenu = () => {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                                    <i className="fa fa-pause" aria-hidden="true"></i> - Pause
+                                    <i className="fa fa-pause" aria-hidden="true"/> Pause
 
                                 </h1>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
