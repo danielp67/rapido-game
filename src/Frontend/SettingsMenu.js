@@ -4,20 +4,12 @@ import RadioButton from "./RadioButton";
 
 const SettingsMenu = (props) => {
 
-    const {setSettings} = props
-    const [state, setState] = useState(
-        {
-            nbPlayer:"4",
-            level:"hard",
-            switchCountScore : true,
-            switchTimer : true,
-            switchDarkMode : false
-        }
-    )
+    const {settings, setSettings} = props
+    const [state, setState] = useState(settings)
+
 
     const handleChange = (event) => {
         const {name, value, checked} = event.target
-console.log(name, value, checked)
         setState((prevState) => ({
             ...prevState,
             [name]: value !== "on" ? value : checked,
@@ -25,10 +17,10 @@ console.log(name, value, checked)
     }
 
     const submitForm = () => {
-        console.log('submit', state)
+        setSettings(state)
     }
 
-
+if(settings) {
     return (
 
         <>
@@ -45,27 +37,27 @@ console.log(name, value, checked)
                         </div>
                         <div className="modal-body">
                             Nombre de joueurs :
-                                <RadioButton
-                                    state={state}
-                                    name={"nbPlayer"}
-                                    value={"4"}
-                                    onChange={handleChange}
-                                    label={"4"}
-                                />
-                                <RadioButton
-                                    state={state}
-                                    name={"nbPlayer"}
-                                    value={"8"}
-                                    onChange={handleChange}
-                                    label={"8"}
-                                />
-                                <RadioButton
-                                    state={state}
-                                    name={"nbPlayer"}
-                                    value={"12"}
-                                    onChange={handleChange}
-                                    label={"12"}
-                                />
+                            <RadioButton
+                                state={state}
+                                name={"nbPlayer"}
+                                value={"4"}
+                                onChange={handleChange}
+                                label={"4"}
+                            />
+                            <RadioButton
+                                state={state}
+                                name={"nbPlayer"}
+                                value={"8"}
+                                onChange={handleChange}
+                                label={"8"}
+                            />
+                            <RadioButton
+                                state={state}
+                                name={"nbPlayer"}
+                                value={"12"}
+                                onChange={handleChange}
+                                label={"12"}
+                            />
 
                             <hr/>
                             Level :
@@ -115,10 +107,12 @@ console.log(name, value, checked)
                         </div>
                         <div className="modal-footer">
 
-                            <button className="btn btn-secondary" data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
+                            <button className="btn btn-secondary" data-bs-target="#staticBackdropSecond"
+                                    data-bs-toggle="modal">
                                 Cancel
                             </button>
-                            <button onClick={submitForm} className="btn btn-primary" data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
+                            <button onClick={submitForm} className="btn btn-primary"
+                                    data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
                                 Save
                             </button>
 
@@ -130,6 +124,10 @@ console.log(name, value, checked)
 
         </>
     )
+}
+else{
+    return null
+}
 }
 
 export default SettingsMenu;

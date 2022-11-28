@@ -15,7 +15,15 @@ const MainBoard = () => {
     const [timerOn, setTimerOn] = useState(true)
     const [scoring, setScoring] = useState([])
     const tmpScoring = []
-
+    const [settings, sendSettings] = useState(
+        {
+            nbPlayer:"4",
+            level:"hard",
+            switchCountScore : true,
+            switchTimer : true,
+            switchDarkMode : false
+        }
+    )
 
 
     const initDropZone = () => {
@@ -56,6 +64,10 @@ const MainBoard = () => {
 
         setStart(props)
       //  initDropZone()
+    }
+
+    const setSettings = (props) => {
+        sendSettings(props)
     }
 
     if (!initMainBoard) {
@@ -112,6 +124,8 @@ const MainBoard = () => {
                 <div className="col-4 col-md-3 col-xl-2">
                     <MainMenu
                         startGame={startGame}
+                        settings={settings}
+                        setSettings={setSettings}
                     />
                 </div>
 
