@@ -4,7 +4,6 @@ import DropZone from "./DropZone";
 import Timer from "./Timer";
 import Player from "./Player";
 import MainMenu from "./MainMenu";
-import ThemeTogglerButton from "./ThemeTogglerButton";
 
 const MainBoard = () => {
 
@@ -18,7 +17,7 @@ const MainBoard = () => {
     const [settings, sendSettings] = useState(
         {
             nbPlayer:"4",
-            level:"hard",
+            level:"100",
             switchCountScore : true,
             switchTimer : true,
             switchDarkMode : false
@@ -53,7 +52,7 @@ const MainBoard = () => {
     const setScore = (props) => {
         const {playerIndex, currentScore} = props
         tmpScoring[playerIndex] = currentScore
-    //    tmpScoring[0] = tmpScoring.length
+        tmpScoring[0] = tmpScoring.length
 
         console.log(tmpScoring)
 
