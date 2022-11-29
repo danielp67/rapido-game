@@ -51,7 +51,7 @@ const MainBoard = () => {
 
     const setScore = (props) => {
         const {playerIndex, currentScore} = props
-        tmpScoring[playerIndex] = currentScore
+        tmpScoring[playerIndex] = {playerIndex: playerIndex, currentScore: currentScore}
         tmpScoring[0] = tmpScoring.length
 
         console.log(tmpScoring)
