@@ -237,7 +237,7 @@ const Player = (props) => {
                 })}
 
                 <div className="col-2 my-auto d-flex flex-column">
-                    <i className="fa fa-user" aria-hidden="true"></i>
+                    <i className="fa fa-user" aria-hidden="true"/>
                     {playerIndex}
                 </div>
 
