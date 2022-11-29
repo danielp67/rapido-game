@@ -4,6 +4,7 @@ import DropZone from "./DropZone";
 import Timer from "./Timer";
 import Player from "./Player";
 import MainMenu from "./MainMenu";
+import ThemeTogglerButton from "./ThemeTogglerButton";
 
 const MainBoard = () => {
 

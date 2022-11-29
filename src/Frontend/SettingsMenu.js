@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import SwitchButton from "./SwitchButton";
 import RadioButton from "./RadioButton";
+import ThemeTogglerButton from "./ThemeTogglerButton";
 
 const SettingsMenu = (props) => {
 
     const {settings, setSettings} = props
     const [state, setState] = useState(settings)
+  //  const [themeState, dispatch] = useReducer(toggleTheme, initialState)
 
 
     const handleChange = (event) => {
@@ -84,6 +86,7 @@ if(settings) {
                             />
                             <hr/>
 
+                            <ThemeTogglerButton />
 
                             <SwitchButton
                                 state={state}
