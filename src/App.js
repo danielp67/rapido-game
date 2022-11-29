@@ -2,32 +2,39 @@ import './App.css';
 import MainBoard from "./Frontend/MainBoard";
 import {ThemeContext, Theme} from "./Frontend/ThemeContext";
 import React, {useReducer, useState} from "react";
-import ThemeTogglerButton from "./Frontend/ThemeTogglerButton";
 
 
-const initialState = {theme: Theme.light};
+class App extends React.Component {
+    constructor(props) {
+        super(props);
 
-function toggleTheme(state) {
+        this.toggleTheme = () => {
+            this.setState(state => ({
+                theme:
+                    state.theme === Theme.dark ? Theme.light : Theme.dark,
+            }));
+        };
 
-return {theme: state.theme === Theme.dark ? Theme.light : Theme.dark}
-};
+        // L’état local contient aussi la fonction de mise à jour donc elle va
+        // être passée au fournisseur de contexte
+        this.state = {
+            theme: Theme.light,
+            toggleTheme: this.toggleTheme,
+        };
+    }
 
+    render() {
 
-function App() {
+        return (
+            <ThemeContext.Provider value={this.state}>
+                <div className={`container-fluid vh-100 ${this.state.theme.className}`}>
 
-    const [state, dispatch] = useReducer(toggleTheme, initialState)
+                    <MainBoard/>
+                </div>
 
-    return (
-
-<ThemeContext.Provider value={state} >
-        <div className={`container-fluid vh-100 ${state.theme.className}`}>
-                 <button onClick={() => dispatch()}>-</button>
-            <ThemeTogglerButton />
-
-                <MainBoard/>
-        </div>
-</ThemeContext.Provider>
-    );
+            </ThemeContext.Provider>
+        );
+    }
 }
 
 export default App;

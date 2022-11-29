@@ -1,22 +1,26 @@
 import React, {useReducer, useState} from 'react';
 import SwitchButton from "./SwitchButton";
 import RadioButton from "./RadioButton";
-import ThemeTogglerButton from "./ThemeTogglerButton";
+import {Theme, ThemeContext} from "./ThemeContext";
+
 
 const SettingsMenu = (props) => {
 
     const {settings, setSettings} = props
     const [state, setState] = useState(settings)
-  //  const [themeState, dispatch] = useReducer(toggleTheme, initialState)
-
-
+/*
     const handleChange = (event) => {
         const {name, value, checked} = event.target
         setState((prevState) => ({
             ...prevState,
             [name]: value !== "on" ? value : checked,
         }));
-    }
+
+        if(name==="switchDarkMode")
+        {
+            toggleTheme()
+        }
+    }*/
 
     const submitForm = () => {
         setSettings(state)
@@ -26,10 +30,26 @@ if(settings) {
     return (
 
         <>
+            <ThemeContext.Consumer>
+                {({theme, toggleTheme}) => {
+                    const handleChange = (event) => {
+                        const {name, value, checked} = event.target
+                        setState((prevState) => ({
+                            ...prevState,
+                            [name]: value !== "on" ? value : checked,
+                        }));
+
+                        if(name==="switchDarkMode")
+                        {
+                            toggleTheme()
+                        }
+                    }
+
+                  return  (
             <div className="modal fade" id="exampleModalToggle2" aria-hidden="true"
                  aria-labelledby="exampleModalToggleLabel2" tabIndex="-1">
                 <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
+                    <div className={`modal-content ${theme.className}`}>
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalToggleLabel2">
                                 <i className="fa fa-cog" aria-hidden="true"/> Settings
@@ -86,8 +106,6 @@ if(settings) {
                             />
                             <hr/>
 
-                            <ThemeTogglerButton />
-
                             <SwitchButton
                                 state={state}
                                 name={"switchCountScore"}
@@ -123,7 +141,8 @@ if(settings) {
                     </div>
                 </div>
             </div>
-
+                )}}
+            </ThemeContext.Consumer>
 
         </>
     )
