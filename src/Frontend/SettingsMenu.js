@@ -2,25 +2,13 @@ import React, {useReducer, useState} from 'react';
 import SwitchButton from "./SwitchButton";
 import RadioButton from "./RadioButton";
 import {Theme, ThemeContext} from "./ThemeContext";
+import Modal from "./Modal";
 
 
 const SettingsMenu = (props) => {
 
     const {settings, setSettings} = props
     const [state, setState] = useState(settings)
-/*
-    const handleChange = (event) => {
-        const {name, value, checked} = event.target
-        setState((prevState) => ({
-            ...prevState,
-            [name]: value !== "on" ? value : checked,
-        }));
-
-        if(name==="switchDarkMode")
-        {
-            toggleTheme()
-        }
-    }*/
 
     const submitForm = () => {
         setSettings(state)
@@ -46,10 +34,9 @@ if(settings) {
                     }
 
                   return  (
-            <div className="modal fade" id="exampleModalToggle2" aria-hidden="true"
-                 aria-labelledby="exampleModalToggleLabel2" tabIndex="-1">
-                <div className="modal-dialog modal-dialog-centered">
-                    <div className={`modal-content ${theme.className}`}>
+
+                        <Modal id={"exampleModalToggle2"}>
+
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalToggleLabel2">
                                 <i className="fa fa-cog" aria-hidden="true"/> Settings
@@ -138,10 +125,9 @@ if(settings) {
                             </button>
 
                         </div>
-                    </div>
-                </div>
-            </div>
-                )}}
+                        </Modal>
+
+                  )}}
             </ThemeContext.Consumer>
 
         </>
