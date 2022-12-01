@@ -29,6 +29,7 @@ const Card = (props) => {
                 onDragStart={(e) => dragStart(e)}
                 onDragEnd={drop}
                 onDoubleClick={(e) => doubleClick(e)}
+                onTouchEndCapture={(e) => doubleClick(e)}
                 draggable
             >
                 <p className="my-auto fs-3 fw-bold">{card.value}</p>
