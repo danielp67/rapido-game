@@ -5,7 +5,11 @@ const Card = (props) => {
 
     const dragStart = (e) => {
         setCurrentCard({card:card, slotName:slotName})
-        console.log('dragStart',card, slotName);
+    };
+
+    const doubleClick = (e) => {
+        setCurrentCard({card:card, slotName:"doubleClick"})
+       // console.log('doubleClick',e);
     };
 
     let className=""
@@ -25,6 +29,7 @@ const Card = (props) => {
                 className={`card playerCard bg-${card.suit} ${className}`}
                 onDragStart={(e) => dragStart(e)}
                 onDragEnd={drop}
+                onDoubleClick={(e) => doubleClick(e)}
                 draggable
             >
                 <p className="my-auto fs-3 fw-bold">{card.value}</p>
