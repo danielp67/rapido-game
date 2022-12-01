@@ -1,8 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Modal from "./Modal";
 import {ScoreContext} from "./ScoreContext";
 
 const ScoringMenu = (props) => {
+/*
+
+    const {stop} = props
+    const [scoring, setScoring] = useState([])
+    const [loading, setLoading] = useState(true)
+    if (stop && loading) {
+
+    let itemsList = localStorage.getItem('score')
+    if (itemsList) {
+        setScoring( JSON.parse(localStorage.getItem('score')))
+        setLoading(false)
+    }
+    }
+    console.log(scoring)
+*/
 
     return (
 
@@ -37,18 +52,17 @@ const ScoringMenu = (props) => {
                                 <tbody>
                                 {
                                     score.map((mapping, index) => {
-                                        if (index > 0) {
+                                         console.log(mapping, index)
                                             return (
                                                 <tr key={index}>
-                                                    <th scope="row">{index}</th>
-                                                    <td>{index}</td>
-                                                    <td>{mapping.current}</td>
+                                                    <th scope="row">{index+1}</th>
+                                                    <td>{mapping.playerIndex}</td>
+                                                    <td>{mapping.currentScore}</td>
                                                     <td>{mapping.total}</td>
                                                 </tr>
 
 
                                             )
-                                        }
                                     })
                                 }
 

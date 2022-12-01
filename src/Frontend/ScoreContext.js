@@ -1,11 +1,10 @@
 import React from 'react';
 
 export const Score = [
-    {current:0, total:0},
-    {current:0, total:0},
-    {current:0, total:0},
-    {current:0, total:0},
-    {current:0, total:0}
+    {playerIndex: 1, currentScore:0, total:0},
+    {playerIndex: 2, currentScore:0, total:0},
+    {playerIndex: 3, currentScore:0, total:0},
+    {playerIndex: 4, currentScore:0, total:0},
 ]
 
 export const ScoreContext = React.createContext({

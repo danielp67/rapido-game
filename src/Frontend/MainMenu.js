@@ -7,7 +7,7 @@ import QuitMenu from "./QuitMenu";
 
 const MainMenu = (props) => {
 
-    const {startGame, settings, setSettings} = props
+    const {startGame, settings, setSettings, stop} = props
 
     return (
         <div className="row h-100 bg-warning text-dark bg-opacity-50">
@@ -17,7 +17,7 @@ const MainMenu = (props) => {
                 <SecondMenu startGame={startGame}/>
                 <ResumeMenu/>
                 <QuitMenu/>
-                <ScoringMenu/>
+                <ScoringMenu stop={stop}/>
                 <SettingsMenu
                     settings={settings}
                     setSettings={setSettings}
