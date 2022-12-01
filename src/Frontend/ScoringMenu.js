@@ -37,23 +37,20 @@ const ScoringMenu = (props) => {
                                 <tbody>
                                 {
                                     score.map((mapping, index) => {
-                                         console.log(mapping, index)
-                                            return (
-                                                <tr key={index}>
-                                                    <th scope="row">{index+1}</th>
-                                                    <td>{mapping.playerIndex}</td>
-                                                    <td>{mapping.currentScore}</td>
-                                                    <td>{mapping.total}</td>
-                                                </tr>
+                                        return (
+                                            <tr key={index}>
+                                                <th scope="row">{index + 1}</th>
+                                                <td>{mapping.playerIndex}</td>
+                                                <td>{mapping.currentScore}</td>
+                                                <td>{mapping.total}</td>
+                                            </tr>
 
-
-                                            )
+                                        )
                                     })
                                 }
 
                                 </tbody>
                             </table>
-
 
                         </div>
                         <div className="modal-footer">
