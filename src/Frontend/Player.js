@@ -79,6 +79,11 @@ const Player = (props) => {
         setCurrentCard(props)
     };
 
+    const setCardOnDbClick = (props) => {
+
+        console.log(props,"dle click")
+    }
+
     const drop = () => {
         let tmpDroppedCard = [...droppedCard]
         if(selectedSlot!=="")
@@ -226,6 +231,7 @@ const Player = (props) => {
                                     slotName={mapping}
                                     deck={deck}
                                     setCurrentCard={setCard}
+                                    setCardOnDbClick={setCardOnDbClick}
                                     drop={drop}
                                 />
                                 {realPlayer && mapping==="reserveSlot"  ?  <NextButton

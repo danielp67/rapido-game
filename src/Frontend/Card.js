@@ -1,15 +1,14 @@
 import React from 'react';
 
 const Card = (props) => {
-    const {drop, setCurrentCard, slotName, card, realPlayer} = props
+    const {drop, setCurrentCard, setCardOnDbClick, slotName, card, realPlayer} = props
 
     const dragStart = (e) => {
         setCurrentCard({card:card, slotName:slotName})
     };
 
     const doubleClick = (e) => {
-        setCurrentCard({card:card, slotName:"doubleClick"})
-       // console.log('doubleClick',e);
+        setCardOnDbClick({card:card, slotName:slotName})
     };
 
     let className=""

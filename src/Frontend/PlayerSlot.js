@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const PlayerSlot = (props) => {
 
-    const {slotName, deck, setCurrentCard, drop, realPlayer} = props
+    const {slotName, deck, setCurrentCard, setCardOnDbClick,  drop, realPlayer} = props
 
         return (
                 <Card
@@ -11,6 +11,7 @@ const PlayerSlot = (props) => {
                     realPlayer={realPlayer}
                     slotName={slotName}
                     setCurrentCard={setCurrentCard}
+                    setCardOnDbClick={setCardOnDbClick}
                     drop={drop}
                 />
         )
