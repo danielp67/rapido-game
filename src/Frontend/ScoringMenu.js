@@ -1,23 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Modal from "./Modal";
 import {ScoreContext} from "./ScoreContext";
 
 const ScoringMenu = (props) => {
-/*
-
-    const {stop} = props
-    const [scoring, setScoring] = useState([])
-    const [loading, setLoading] = useState(true)
-    if (stop && loading) {
-
-    let itemsList = localStorage.getItem('score')
-    if (itemsList) {
-        setScoring( JSON.parse(localStorage.getItem('score')))
-        setLoading(false)
-    }
-    }
-    console.log(scoring)
-*/
 
     return (
 
@@ -72,8 +57,7 @@ const ScoringMenu = (props) => {
 
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" className="btn btn-primary">Save</button>
+                            <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </Modal>
                 )}
