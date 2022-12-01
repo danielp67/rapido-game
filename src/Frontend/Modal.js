@@ -8,7 +8,7 @@ const Modal = ({id, children}) => {
             <ThemeContext.Consumer>
                 {({theme}) => (
             <div className="modal fade" id={id} aria-hidden="true"
-                 aria-labelledby={id} tabIndex="-1">
+                 aria-labelledby={id} tabIndex="-1" style={{display: "none"}}>
                 <div className="modal-dialog modal-dialog-centered">
                     <div className={`modal-content ${theme.className}`}>
                         {children}

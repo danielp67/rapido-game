@@ -14,7 +14,9 @@ const ScoringMenu = (props) => {
             </button>
 
             <ScoreContext.Consumer>
-                {({score}) => (
+                {({score}) =>{
+                    //console.log(score)
+                    return(
                     <Modal id={"staticBackdropScoring"}>
 
                         <div className="modal-header">
@@ -57,7 +59,7 @@ const ScoringMenu = (props) => {
                             <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </Modal>
-                )}
+                )}}
             </ScoreContext.Consumer>
         </>
     )

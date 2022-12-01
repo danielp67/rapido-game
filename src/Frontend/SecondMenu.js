@@ -4,7 +4,7 @@ import Modal from "./Modal";
 
 const SecondMenu = (props) => {
 
-    const {startGame} = props
+    const {startGame, loading} = props
 
     return (
 
