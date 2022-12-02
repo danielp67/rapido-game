@@ -27,8 +27,12 @@ const ResumeMenu = () => {
 
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" className="btn btn-primary">Continue</button>
+                    <button type="button" className="btn btn-secondary">
+                        <i className="fa fa-sign-in" aria-hidden="true"/> Quitter la partie
+                    </button>
+                    <button type="button" className="btn btn-primary">
+                        <i className="fa fa-play" aria-hidden="true"/> Continuer
+                    </button>
                 </div>
             </Modal>
 

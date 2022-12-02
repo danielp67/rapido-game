@@ -193,7 +193,45 @@ if(loading){
     return(
         <>
 
-            <button onClick={() => setReloading()}>cliquer</button>
+
+
+            <div className={"overlay"}>
+                <div className="card launch-card text-center my-auto">
+                    <div className="card-header">
+                        <ul className="nav nav-tabs card-header-tabs">
+                            <li className="nav-item">
+                                <a className="nav-link active" href="#">Active</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">Link</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link disabled">Score</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="card-body">
+                        <h5 className="card-title">Rapido game</h5>
+                        <p className="card-text">With supporting text below as a natural lead-in to additional
+                            content.</p>
+                    </div>
+                    <div className="card-footer">
+                        <button className="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                                data-bs-toggle="modal">
+                            <i className="fa fa-cog" aria-hidden="true"/> Settings
+                        </button>
+
+                        <button className="btn btn-primary" onClick={() => this.setClassName(true)}>
+                            <i className="fa fa-play" aria-hidden="true"/> Start
+                        </button>
+
+
+                        <button onClick={() => setReloading()}>cliquer</button>
+
+                    </div>
+
+                </div>
+            </div>
             </>
     )
 }

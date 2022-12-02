@@ -3,7 +3,6 @@ import SettingsMenu from "./SettingsMenu";
 import SecondMenu from "./SecondMenu";
 import ScoringMenu from "./ScoringMenu";
 import ResumeMenu from "./ResumeMenu";
-import QuitMenu from "./QuitMenu";
 
 const MainMenu = (props) => {
 
@@ -19,7 +18,6 @@ const MainMenu = (props) => {
                     loading={loading}
                 />
                 <ResumeMenu/>
-                <QuitMenu/>
                 <ScoringMenu/>
                 <SettingsMenu
                     settings={settings}
