@@ -135,14 +135,14 @@ if(loading){
                 </div>
 
                 <div className="row">
-                    <div className="col-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
+                    <div className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
                         <DropZone
                             setSelectedSlot={setSlot}
                             droppedCard={droppedCard}
                         />
                     </div>
 
-                    <div className="col-4 col-md-3 col-xl-2">
+                    <div className="col-4 col-md-3 col-xl-2 d-none d-sm-block">
                         <Bots
                             start={start}
                             stop={stop}
@@ -157,7 +157,7 @@ if(loading){
                 </div>
 
                 <div className="row">
-                    <div className="col-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
+                    <div className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
                         <Player
                             realPlayer={true}
                             playerIndex={4}
@@ -174,7 +174,7 @@ if(loading){
 
                         />
                     </div>
-                    <div className="col-4 col-md-3 col-xl-2">
+                    <div className="col-4 col-md-3 col-xl-2 d-none d-sm-block">
                         <MainMenu
                             startGame={startGame}
                             settings={settings}

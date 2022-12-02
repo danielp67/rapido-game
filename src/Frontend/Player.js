@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import NextButton from "./NextButton";
 import PlayerSlot from "./PlayerSlot";
+import ResumeMenu from "./ResumeMenu";
 
 const Player = (props) => {
 
@@ -296,8 +297,9 @@ const Player = (props) => {
                     {playerIndex}
                 </div>
 
-
-
+                <div className="m-auto d-sm-none d-block">
+                <ResumeMenu/>
+                </div>
 
             </div>
     )
