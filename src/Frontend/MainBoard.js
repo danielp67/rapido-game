@@ -30,7 +30,7 @@ let count=0
 
 const initDropZone = () => {
     let tmpDroppedCard =[]
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 4*12; i++) {
         tmpDroppedCard.push([{value: 0, suit: "secondary"}])
     }
     setDroppedCard(tmpDroppedCard)
@@ -160,7 +160,7 @@ if(loading){
                     <div className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
                         <Player
                             realPlayer={true}
-                            playerIndex={4}
+                            playerIndex={1}
                             color={"secondary"}
                             selectedSlot={selectedSlot}
                             setSelectedSlot={setSelectedSlot}
