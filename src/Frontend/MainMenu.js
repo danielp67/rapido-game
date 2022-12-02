@@ -9,7 +9,7 @@ const MainMenu = (props) => {
     const {startGame, settings, setSettings, loading} = props
 
     return (
-        <div className="row h-100 bg-warning text-dark bg-opacity-50">
+        <div className="row h-100 bg-info text-dark bg-opacity-75">
 
             <div className="m-auto">
 
