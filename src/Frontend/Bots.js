@@ -4,7 +4,7 @@ import Player from "./Player";
 const Bots = (props) => {
 
     const {droppedCard, setDroppedCard, gameStop, setScore, stop, start, level, loading} = props
-    const color = ["primary", "success", "danger", "warning", "primary", "success", "danger", "warning", "primary", "success", "danger", "warning"]
+    const color = ["primary", "success", "danger", "warning", "primary", "success", "danger", "warning", "primary", "success", "danger"]
     const nbPlayer = 3
 
     const stopAutoPlayer = (props) => {
@@ -13,7 +13,8 @@ const Bots = (props) => {
 
     return (
         <>
-            {color.map((color, index) => {
+            {color.slice(0,nbPlayer).map((color, index) => {
+
 
                     return (
                         <Player
@@ -37,7 +38,7 @@ const Bots = (props) => {
             )}
         </>)
 
-}
+};
 
 
 export default Bots;
