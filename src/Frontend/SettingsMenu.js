@@ -1,23 +1,21 @@
-import React, {useReducer, useState} from 'react';
+import React, {useContext, useReducer, useState} from 'react';
 import SwitchButton from "./SwitchButton";
 import RadioButton from "./RadioButton";
 import {Theme, ThemeContext} from "./ThemeContext";
 import Modal from "./Modal";
+import {SettingsContext} from "./SettingsContext";
 
 
-const SettingsMenu = (props) => {
+const SettingsMenu = () => {
 
-    const {settings, setSettings} = props
+    const {settingsContext} = useContext(SettingsContext)
+    const [settings, setSettings] = useState({...settingsContext})
     const [state, setState] = useState(settings)
 
-    const submitForm = () => {
-        setSettings(state)
-    }
-
-if(settings) {
     return (
 
         <>
+            <SettingsContext.Provider value={settings}>
             <ThemeContext.Consumer>
                 {({theme, toggleTheme}) => {
                     const handleChange = (event) => {
@@ -119,7 +117,7 @@ if(settings) {
                                     data-bs-toggle="modal">
                                 Cancel
                             </button>
-                            <button onClick={submitForm} className="btn btn-primary"
+                            <button onClick={()=> {setSettings(state)}} className="btn btn-primary"
                                     data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
                                 Save
                             </button>
@@ -129,13 +127,10 @@ if(settings) {
 
                   )}}
             </ThemeContext.Consumer>
-
+            </SettingsContext.Provider>
         </>
     )
-}
-else{
-    return null
-}
+
 }
 
 export default SettingsMenu;
