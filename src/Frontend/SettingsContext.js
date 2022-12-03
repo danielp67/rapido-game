@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Settings = {
-    settingsContext:{
+
     nbPlayer:"4",
     level:"100",
     switchCountScore : true,
@@ -10,8 +10,10 @@ export const Settings = {
     dark: {className:"bg-dark text-white"},
     light: {className:""},
     color: ["primary", "success", "danger", "warning", "primary", "success", "danger", "warning", "primary", "success", "danger"]
-}
+
 }
 
-export const SettingsContext = React.createContext(Settings);
-
+export const SettingsContext =  React.createContext({
+    settingsContext: Settings,
+  //  setScore: () => {},
+});

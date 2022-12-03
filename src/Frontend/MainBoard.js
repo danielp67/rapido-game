@@ -30,7 +30,7 @@ let count=0
 
 const initDropZone = () => {
     let tmpDroppedCard =[]
-    for (let i = 0; i < 4*12; i++) {
+    for (let i = 0; i < 4*settings.nbPlayer; i++) {
         tmpDroppedCard.push([{value: 0, suit: "secondary"}])
     }
     setDroppedCard(tmpDroppedCard)
@@ -152,6 +152,7 @@ if(loading){
                             setScore={setScore}
                             level={parseInt(settings.level)}
                             loading={loading}
+                            settings={settings}
                         />
                     </div>
                 </div>
