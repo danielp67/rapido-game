@@ -160,7 +160,7 @@ const MainBoard = () => {
 
                             />
                         </div>
-                        <div className="col-4 col-md-3 col-xl-2 d-none d-sm-block bg-info text-dark bg-opacity-75">
+                        <div className="col-4 col-md-3 col-xl-2 d-none d-sm-block">
 
                         </div>
 
