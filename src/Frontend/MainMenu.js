@@ -1,5 +1,5 @@
 import React from 'react';
-import SettingsTab from "./SettingsTab";
+import SettingsTab from "../Shareable/SettingsTab";
 import ScoringTab from "./ScoringTab";
 import TabGroup from "../Shareable/TabGroup";
 import {ThemeContext} from "../Shareable/ThemeContext";

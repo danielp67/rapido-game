@@ -1,6 +1,6 @@
 import React from 'react';
 import SwitchButton from "./SwitchButton";
-import {ThemeContext} from "../Shareable/ThemeContext";
+import {ThemeContext} from "./ThemeContext";
 import RadioGroup from "./RadioGroup";
 
 
