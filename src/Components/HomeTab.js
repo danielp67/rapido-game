@@ -19,12 +19,26 @@ const HomeTab = (props) => {
                     <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
                          aria-labelledby="home-tab" tabIndex="0">
 
-                        <h5 className="card-title">Rapido game</h5>
-                        Manche n°{scoring.partNb}<br/>
-                        Gagnant de la manche : joueur n°{winnerMatch[0].playerIndex}<br/>
-                        Le jeu est fini, le vainqueur est le joueur n°{winnerGame[0].playerIndex}<br/>
-                        Bienvenue dans Rapido Game !<br/>
-                        Commencer une nouvelle partie ?<br/>
+                        <h4 className="card-title fw-bold">Rapido game</h4>
+                        {scoring.partNb === 0 ?
+                                "Bienvenue dans Rapido Game !"
+                          :  "Manche n°"+ scoring.partNb
+                        }<br/>
+
+                        {scoring.partNb === 0 ?
+
+                            "Commencer une nouvelle partie ?"
+                            :  "Gagnant de la manche : joueur n°"+ winnerMatch[0].playerIndex
+                        }<br/>
+
+
+                        {scoring.partNb === 0 ?
+
+                            null
+                            :  <div>Le jeu est fini, le vainqueur est le joueur n°{winnerGame[0].playerIndex}
+                            <br/>Commencer une nouvelle partie ?</div>
+                        }
+
                     </div>
 
                 )}
