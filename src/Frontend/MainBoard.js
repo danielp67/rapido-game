@@ -5,6 +5,7 @@ import Timer from "./Timer";
 import Player from "./Player";
 import MainMenu from "./MainMenu";
 import {ScoreContext} from "./ScoreContext";
+import SettingsMenu from "./SettingsMenu";
 
 const MainBoard = () => {
 
@@ -13,6 +14,8 @@ const MainBoard = () => {
     const [initMainBoard, setInitMainBoard] = useState(false)
     const [stop, setStop] = useState(false)
     const [start, setStart] = useState(false)
+    const [loading, setLoading] = useState(false)
+
     const {score} = useContext(ScoreContext)
     const [scoring, setScoring] = useState([...score])
 const tmpScoring = []
@@ -25,7 +28,6 @@ const [settings, sendSettings] = useState(
         switchDarkMode : false
     }
 )
-const [loading, setLoading] = useState(true)
 let count=0
 
 const initDropZone = () => {
@@ -207,7 +209,7 @@ if(loading){
                                 <a className="nav-link" href="#">Link</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link disabled">Score</a>
+                                <a className="nav-link disabled" href="#">Score</a>
                             </li>
                         </ul>
                     </div>
@@ -217,22 +219,27 @@ if(loading){
                             content.</p>
                     </div>
                     <div className="card-footer">
-                        <button className="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                        <button className="btn btn-primary" data-bs-target="#settingsMenu"
                                 data-bs-toggle="modal">
                             <i className="fa fa-cog" aria-hidden="true"/> Settings
                         </button>
 
-                        <button className="btn btn-primary" onClick={() => this.setClassName(true)}>
+                        <button className="btn btn-primary"
+                                onClick={() => setReloading()}
+                        >
                             <i className="fa fa-play" aria-hidden="true"/> Start
                         </button>
-
-
-                        <button onClick={() => setReloading()}>cliquer</button>
 
                     </div>
 
                 </div>
             </div>
+
+            <SettingsMenu
+                settings={settings}
+                setSettings={setSettings}
+            />
+
             </>
     )
 }

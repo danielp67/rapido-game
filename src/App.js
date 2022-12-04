@@ -1,9 +1,7 @@
 import './App.css';
 import MainBoard from "./Frontend/MainBoard";
 import {ThemeContext, Theme} from "./Frontend/ThemeContext";
-import React, {useReducer, useState} from "react";
-import Modal from "./Frontend/Modal";
-
+import React from "react";
 
 class App extends React.Component {
     constructor(props) {
@@ -27,6 +25,7 @@ class App extends React.Component {
 
 
     setClassName = (props) => {
+        console.log("test")
         if(props)
         {
             this.setState({...this.state, name:"" })

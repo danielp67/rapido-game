@@ -35,10 +35,10 @@ const SettingsMenu = (props) => {
 
                         return  (
 
-                            <Modal id={"exampleModalToggle2"}>
+                            <Modal id={"settingsMenu"}>
 
                                 <div className="modal-header">
-                                    <h1 className="modal-title fs-5" id="exampleModalToggleLabel2">
+                                    <h1 className="modal-title fs-5" id="settingsMenuLabel">
                                         <i className="fa fa-cog" aria-hidden="true"/> Settings
                                     </h1>
                                     <button type="button" className="btn-close" data-bs-dismiss="modal"
@@ -115,12 +115,11 @@ const SettingsMenu = (props) => {
                                 </div>
                                 <div className="modal-footer">
 
-                                    <button className="btn btn-secondary" data-bs-target="#staticBackdropSecond"
-                                            data-bs-toggle="modal">
+                                    <button className="btn btn-secondary" data-bs-dismiss="modal">
                                         Cancel
                                     </button>
                                     <button onClick={submitForm} className="btn btn-primary"
-                                            data-bs-target="#staticBackdropSecond" data-bs-toggle="modal">
+                                            data-bs-dismiss="modal" >
                                         Save
                                     </button>
 
