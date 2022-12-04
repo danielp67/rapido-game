@@ -186,6 +186,8 @@ const MainBoard = () => {
 
         return (
             <MainMenu
+                settings={settings}
+                setSettings={setSettings}
                 scoring={scoring}
                 setReloading={setReloading}
             />

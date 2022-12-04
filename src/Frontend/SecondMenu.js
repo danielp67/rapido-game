@@ -1,5 +1,5 @@
 import React from 'react';
-import SettingsMenu from "./SettingsMenu";
+import SettingsTab from "./SettingsTab";
 import Modal from "./Modal";
 
 const SecondMenu = (props) => {
@@ -39,7 +39,7 @@ const SecondMenu = (props) => {
 
             </Modal>
 
-                <SettingsMenu/>
+                <SettingsTab/>
 
             </>
             )

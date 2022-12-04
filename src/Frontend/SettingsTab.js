@@ -5,7 +5,7 @@ import {ThemeContext} from "./ThemeContext";
 import Modal from "./Modal";
 
 
-const SettingsMenu = (props) => {
+const SettingsTab = (props) => {
 
     const {settings, setSettings} = props
     const [state, setState] = useState(settings)
@@ -34,17 +34,7 @@ const SettingsMenu = (props) => {
                         }
 
                         return  (
-
-                            <Modal id={"settingsMenu"}>
-
-                                <div className="modal-header">
-                                    <h1 className="modal-title fs-5" id="settingsMenuLabel">
-                                        <i className="fa fa-cog" aria-hidden="true"/> Settings
-                                    </h1>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"/>
-                                </div>
-                                <div className="modal-body">
+                                <div className={"text-start"}>
                                     Nombre de joueurs :
                                     <RadioButton
                                         state={state}
@@ -113,19 +103,6 @@ const SettingsMenu = (props) => {
                                     />
 
                                 </div>
-                                <div className="modal-footer">
-
-                                    <button className="btn btn-secondary" data-bs-dismiss="modal">
-                                        Cancel
-                                    </button>
-                                    <button onClick={submitForm} className="btn btn-primary"
-                                            data-bs-dismiss="modal" >
-                                        Save
-                                    </button>
-
-                                </div>
-                            </Modal>
-
                         )}}
                 </ThemeContext.Consumer>
 
@@ -137,4 +114,4 @@ const SettingsMenu = (props) => {
     }
 }
 
-export default SettingsMenu;
+export default SettingsTab;
