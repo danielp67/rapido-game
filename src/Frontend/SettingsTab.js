@@ -1,20 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SwitchButton from "./SwitchButton";
-import RadioButton from "./RadioButton";
 import {ThemeContext} from "../Shareable/ThemeContext";
-import Modal from "./Modal";
+import RadioGroup from "./RadioGroup";
 
 
 const SettingsTab = (props) => {
 
     const {settings, setSettings} = props
-    const [state, setState] = useState(settings)
+    const switchParams = [{name: "switchCountScore", label: "Comptage des points"},
+        {name: "switchTimer", label: "Timer"},
+        {name: "switchDarkMode", label: "Dark Mode"}]
 
-    const submitForm = () => {
-        setSettings(state)
-    }
-
-    if(settings) {
+    if (settings) {
         return (
 
             <>
@@ -22,94 +19,57 @@ const SettingsTab = (props) => {
                     {({theme, toggleTheme}) => {
                         const handleChange = (event) => {
                             const {name, value, checked} = event.target
-                            setState((prevState) => ({
+                            setSettings((prevState) => ({
                                 ...prevState,
                                 [name]: value !== "on" ? value : checked,
                             }));
 
-                            if(name==="switchDarkMode")
-                            {
+                            if (name === "switchDarkMode") {
                                 toggleTheme()
                             }
                         }
 
-                        return  (
-                                <div className={"text-start"}>
-                                    Nombre de joueurs :
-                                    <RadioButton
-                                        state={state}
-                                        name={"nbPlayer"}
-                                        value={"4"}
-                                        onChange={handleChange}
-                                        label={"4"}
-                                    />
-                                    <RadioButton
-                                        state={state}
-                                        name={"nbPlayer"}
-                                        value={"8"}
-                                        onChange={handleChange}
-                                        label={"8"}
-                                    />
-                                    <RadioButton
-                                        state={state}
-                                        name={"nbPlayer"}
-                                        value={"12"}
-                                        onChange={handleChange}
-                                        label={"12"}
-                                    />
-
-                                    <hr/>
-                                    Level :
-                                    <RadioButton
-                                        state={state}
-                                        name={"level"}
-                                        value={"3500"}
-                                        onChange={handleChange}
-                                        label={"Easy"}
-                                    />
-                                    <RadioButton
-                                        state={state}
-                                        name={"level"}
-                                        value={"2000"}
-                                        onChange={handleChange}
-                                        label={"Medium"}
-                                    />
-                                    <RadioButton
-                                        state={state}
-                                        name={"level"}
-                                        value={"1000"}
-                                        onChange={handleChange}
-                                        label={"Hard"}
-                                    />
-                                    <hr/>
-
+                        return (
+                            <div className={"text-start"}>
+                                Nombre de joueurs :
+                                <RadioGroup
+                                    settings={settings}
+                                    name={"nbPlayer"}
+                                    radioParams={[{label: "4", value: "4"},
+                                        {label: "8", value: "8"},
+                                        {label: "12", value: "12"}
+                                    ]}
+                                    handleChange={handleChange}
+                                />
+                                <hr/>
+                                Level :
+                                <RadioGroup
+                                    settings={settings}
+                                    name={"level"}
+                                    radioParams={[{label: "Easy", value: "3500"},
+                                        {label: "Medium", value: "2000"},
+                                        {label: "Hard", value: "1000"}
+                                    ]}
+                                    handleChange={handleChange}
+                                />
+                                <hr/>
+                                {switchParams.map((mapping, index) => (
                                     <SwitchButton
-                                        state={state}
-                                        name={"switchCountScore"}
+                                        key={index}
+                                        settings={settings}
+                                        name={mapping.name}
                                         onChange={handleChange}
-                                        label={"Comptage des points"}
+                                        label={mapping.label}
                                     />
-                                    <SwitchButton
-                                        state={state}
-                                        name={"switchTimer"}
-                                        onChange={handleChange}
-                                        label={"Timer"}
-                                    />
-                                    <SwitchButton
-                                        state={state}
-                                        name={"switchDarkMode"}
-                                        onChange={handleChange}
-                                        label={"Dark Mode"}
-                                    />
-
-                                </div>
-                        )}}
+                                ))}
+                            </div>
+                        )
+                    }}
                 </ThemeContext.Consumer>
 
             </>
         )
-    }
-    else{
+    } else {
         return null
     }
 }
