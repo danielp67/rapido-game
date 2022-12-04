@@ -36,10 +36,10 @@ const MainMenu = (props) => {
                                 <button className="btn btn-primary"
                                         onClick={() => setReloading()}
                                 >
-                                    <i className="fa fa-play" aria-hidden="true"/> Start
+                                    <i className="fa fa-play" aria-hidden="true"/> {scoring.partNb===0 ? "Démarrer" : "Continuer"}
                                 </button>
 
-                                <button type="button" className="btn btn-secondary disabled">
+                                <button type="button" className="btn btn-secondary" disabled={scoring.partNb===0}>
                                     <i className="fa fa-sign-in" aria-hidden="true"/> Quitter la partie
                                 </button>
                             </div>
