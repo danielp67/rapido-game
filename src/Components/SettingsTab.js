@@ -11,7 +11,6 @@ const SettingsTab = (props) => {
         {name: "switchTimer", label: "Timer"},
         {name: "switchDarkMode", label: "Dark Mode"}]
 
-    if (settings) {
         return (
 
             <>
@@ -72,9 +71,7 @@ const SettingsTab = (props) => {
 
             </>
         )
-    } else {
-        return null
-    }
+
 }
 
 export default SettingsTab;

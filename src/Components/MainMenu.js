@@ -15,7 +15,7 @@ const MainMenu = (props) => {
                 {({theme}) => (
                     <div className={"overlay"}>
                         <div className={`card launch-card text-center my-auto ${theme.className}`}>
-                            <TabGroup/>
+                            <TabGroup partNb={scoring.partNb}/>
                             <div className="card-body tab-content" id="myTabContent">
                                 <HomeTab
                                     scoring={scoring}

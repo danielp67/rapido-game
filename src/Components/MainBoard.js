@@ -82,7 +82,7 @@ const MainBoard = () => {
             scoring.partNb++
             setScoring({score: tmpScoring, partNb: scoring.partNb})
             setLoading(false)
-            console.log(tmpScoring, scoring)
+            console.log(scoring)
 
         }
     }
@@ -112,7 +112,7 @@ const MainBoard = () => {
     if (loading) {
         return (
             <>
-                <ScoreContext.Provider value={{score: scoring}}>
+                <ScoreContext.Provider value={{score: scoring, partNb: partNb}}>
                     <div className="row">
                         <h1 className="text-center">Rapido Game</h1>
                         <Timer
