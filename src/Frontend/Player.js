@@ -297,15 +297,18 @@ const Player = (props) => {
                     {playerIndex}
                 </div>
 
-                <div className="m-auto d-sm-none d-block">
+                {realPlayer ?
+                <div className="m-auto">
                 <ResumeMenu/>
                 </div>
+                    : null
+                }
 
             </div>
     )
 
 
-}
+};
 
 
 export default Player;

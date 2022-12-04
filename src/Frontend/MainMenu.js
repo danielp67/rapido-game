@@ -1,7 +1,7 @@
 import React from 'react';
 import SettingsMenu from "./SettingsMenu";
 import SecondMenu from "./SecondMenu";
-import ScoringMenu from "./ScoringMenu";
+import ScoringTab from "./ScoringTab";
 import ResumeMenu from "./ResumeMenu";
 
 const MainMenu = (props) => {
@@ -16,12 +16,6 @@ const MainMenu = (props) => {
                 <SecondMenu
                     startGame={startGame}
                     loading={loading}
-                />
-                <ResumeMenu/>
-                <ScoringMenu/>
-                <SettingsMenu
-                    settings={settings}
-                    setSettings={setSettings}
                 />
 
             </div>

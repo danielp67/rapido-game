@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from "./Modal";
 import {ScoreContext} from "./ScoreContext";
 
-const ScoringMenu = (props) => {
+const ScoringTab = (props) => {
 
     return (
 
@@ -65,4 +65,4 @@ const ScoringMenu = (props) => {
     )
 }
 
-export default ScoringMenu;
+export default ScoringTab;

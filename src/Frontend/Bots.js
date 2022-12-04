@@ -5,11 +5,7 @@ const Bots = (props) => {
 
     const {droppedCard, setDroppedCard, gameStop, setScore, stop, start, level, loading, settings} = props
     const color = ["primary", "success", "danger", "warning", "primary", "success", "danger", "warning", "primary", "success", "danger"]
-    //const nbPlayer = 4
 
-    const stopAutoPlayer = (props) => {
-        gameStop(props)
-    }
 
     return (
         <>
@@ -24,7 +20,7 @@ const Bots = (props) => {
                             color={color}
                             droppedCard={droppedCard}
                             setDroppedCard={setDroppedCard}
-                            gameStop={stopAutoPlayer}
+                            gameStop={gameStop}
                             start={start}
                             stop={stop}
                             setScore={setScore}
