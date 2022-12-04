@@ -13,9 +13,6 @@ const HomeTab = (props) => {
 
     return (
         <>
-            <ThemeContext.Consumer>
-                {({theme}) => (
-
                     <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
                          aria-labelledby="home-tab" tabIndex="0">
 
@@ -41,8 +38,6 @@ const HomeTab = (props) => {
 
                     </div>
 
-                )}
-            </ThemeContext.Consumer>
         </>
     )
 };
