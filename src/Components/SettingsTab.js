@@ -1,7 +1,7 @@
 import React from 'react';
-import SwitchButton from "./SwitchButton";
-import {ThemeContext} from "./ThemeContext";
-import RadioGroup from "./RadioGroup";
+import SwitchButton from "../Shareable/SwitchButton";
+import {ThemeContext} from "../Shareable/ThemeContext";
+import RadioGroup from "../Shareable/RadioGroup";
 
 
 const SettingsTab = (props) => {

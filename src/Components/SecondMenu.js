@@ -1,5 +1,5 @@
 import React from 'react';
-import SettingsTab from "../Shareable/SettingsTab";
+import SettingsTab from "./SettingsTab";
 import Modal from "./Modal";
 
 const SecondMenu = (props) => {

@@ -1,5 +1,5 @@
 import './App.css';
-import MainBoard from "./Frontend/MainBoard";
+import MainBoard from "./Components/MainBoard";
 import {ThemeContext, Theme} from "./Shareable/ThemeContext";
 import React from "react";
 
