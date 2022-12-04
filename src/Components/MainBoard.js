@@ -43,7 +43,6 @@ const MainBoard = () => {
     };
 
     const drop = (props) => {
-        //   console.log(props)
         setDroppedCard(props)
     }
 
@@ -60,15 +59,12 @@ const MainBoard = () => {
         tmpScoring[playerIndex - 1] = {
             playerIndex: playerIndex,
             currentScore: currentScore,
-            total: tmpScoring[playerIndex - 1].total
+            total: tmpScoring[playerIndex - 1].total ? tmpScoring[playerIndex - 1].total : 0
         }
-
         count++
-
-        if (tmpScoring.length === 4 && loading && count === 8) {
+        if (tmpScoring.length === settings.nbPlayer*1 && loading && count === settings.nbPlayer*2) {
 
             tmpScoring = tmpScoring.map((mapping, index) => {
-                console.log(mapping,parseInt(mapping.total) + parseInt(mapping.currentScore) )
                 return (
                     {
                         playerIndex: mapping.playerIndex,
