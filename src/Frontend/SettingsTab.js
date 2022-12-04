@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import SwitchButton from "./SwitchButton";
 import RadioButton from "./RadioButton";
-import {ThemeContext} from "./ThemeContext";
+import {ThemeContext} from "../Shareable/ThemeContext";
 import Modal from "./Modal";
 
 

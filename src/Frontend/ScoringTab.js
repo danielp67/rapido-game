@@ -1,10 +1,12 @@
 import React from 'react';
+import {ThemeContext} from "../Shareable/ThemeContext";
 
 const ScoringTab = ({scoring}) => {
 
     return (
-
-        <table className="table table-hover table-striped">
+        <ThemeContext.Consumer>
+            {({theme}) => (
+        <table className={`table table-hover table-striped ${theme.className}`}>
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -30,7 +32,8 @@ const ScoringTab = ({scoring}) => {
 
             </tbody>
         </table>
-
+            )}
+        </ThemeContext.Consumer>
     )
 }
 
