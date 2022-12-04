@@ -1,5 +1,5 @@
 import React from 'react';
-import {Theme, ThemeContext} from "../Shareable/ThemeContext";
+import {ThemeContext} from "./ThemeContext";
 
 const Modal = ({id, children}) => {
 

@@ -299,7 +299,9 @@ const Player = (props) => {
 
                 {realPlayer ?
                 <div className="m-auto">
-                <ResumeMenu/>
+                <ResumeMenu
+                    gameStop={gameStop}
+                />
                 </div>
                     : null
                 }

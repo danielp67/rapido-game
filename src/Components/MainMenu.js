@@ -3,6 +3,7 @@ import SettingsTab from "./SettingsTab";
 import ScoringTab from "./ScoringTab";
 import TabGroup from "../Shareable/TabGroup";
 import {ThemeContext} from "../Shareable/ThemeContext";
+import HomeTab from "./HomeTab";
 
 const MainMenu = (props) => {
 
@@ -16,30 +17,16 @@ const MainMenu = (props) => {
                         <div className={`card launch-card text-center my-auto ${theme.className}`}>
                             <TabGroup/>
                             <div className="card-body tab-content" id="myTabContent">
-                                <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
-                                     aria-labelledby="home-tab" tabIndex="0">
-
-                                    <h5 className="card-title">Rapido game</h5>
-                                    welcome in rapido game
-
-                                </div>
-                                <div className="tab-pane fade" id="score-tab-pane" role="tabpanel"
-                                     aria-labelledby="score-tab" tabIndex="0">
-
-
+                                <HomeTab
+                                    scoring={scoring}
+                                />
                                     <ScoringTab
                                         scoring={scoring}
                                     />
-                                </div>
-                                <div className="tab-pane fade" id="settings-tab-pane" role="tabpanel"
-                                     aria-labelledby="settings-tab" tabIndex="0">
-
-
                                     <SettingsTab
                                         settings={settings}
                                         setSettings={setSettings}
                                     />
-                                </div>
                                 <div className="tab-pane fade" id="tuto-tab-pane" role="tabpanel"
                                      aria-labelledby="tuto-tab" tabIndex="0">...
                                 </div>
@@ -50,6 +37,10 @@ const MainMenu = (props) => {
                                         onClick={() => setReloading()}
                                 >
                                     <i className="fa fa-play" aria-hidden="true"/> Start
+                                </button>
+
+                                <button type="button" className="btn btn-secondary disabled">
+                                    <i className="fa fa-sign-in" aria-hidden="true"/> Quitter la partie
                                 </button>
                             </div>
 

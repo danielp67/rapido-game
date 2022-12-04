@@ -1,13 +1,16 @@
 import React from 'react';
-import Modal from "./Modal";
+import Modal from "../Shareable/Modal";
 
-const ResumeMenu = () => {
+const ResumeMenu = (props) => {
 
+    const {gameStop} = props
     return (
 
         <>
             <button type="button" className="btn btn-primary col-4 m-2" data-bs-toggle="modal"
-                    data-bs-target="#staticBackdropResume">
+                    data-bs-target="#staticBackdropResume"
+                onClick={gameStop}
+            >
                 <i className="fa fa-pause" aria-hidden="true"/>
             </button>
 

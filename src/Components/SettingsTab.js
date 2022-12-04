@@ -30,38 +30,41 @@ const SettingsTab = (props) => {
                         }
 
                         return (
-                            <div className={"text-start"}>
-                                Nombre de joueurs :
-                                <RadioGroup
-                                    settings={settings}
-                                    name={"nbPlayer"}
-                                    radioParams={[{label: "4", value: "4"},
-                                        {label: "8", value: "8"},
-                                        {label: "12", value: "12"}
-                                    ]}
-                                    handleChange={handleChange}
-                                />
-                                <hr/>
-                                Level :
-                                <RadioGroup
-                                    settings={settings}
-                                    name={"level"}
-                                    radioParams={[{label: "Easy", value: "3500"},
-                                        {label: "Medium", value: "2000"},
-                                        {label: "Hard", value: "1000"}
-                                    ]}
-                                    handleChange={handleChange}
-                                />
-                                <hr/>
-                                {switchParams.map((mapping, index) => (
-                                    <SwitchButton
-                                        key={index}
+                            <div className="tab-pane fade" id="settings-tab-pane" role="tabpanel"
+                                 aria-labelledby="settings-tab" tabIndex="0">
+                                <div className={"text-start"}>
+                                    Nombre de joueurs :
+                                    <RadioGroup
                                         settings={settings}
-                                        name={mapping.name}
-                                        onChange={handleChange}
-                                        label={mapping.label}
+                                        name={"nbPlayer"}
+                                        radioParams={[{label: "4", value: "4"},
+                                            {label: "8", value: "8"},
+                                            {label: "12", value: "12"}
+                                        ]}
+                                        handleChange={handleChange}
                                     />
-                                ))}
+                                    <hr/>
+                                    Level :
+                                    <RadioGroup
+                                        settings={settings}
+                                        name={"level"}
+                                        radioParams={[{label: "Easy", value: "3500"},
+                                            {label: "Medium", value: "2000"},
+                                            {label: "Hard", value: "1000"}
+                                        ]}
+                                        handleChange={handleChange}
+                                    />
+                                    <hr/>
+                                    {switchParams.map((mapping, index) => (
+                                        <SwitchButton
+                                            key={index}
+                                            settings={settings}
+                                            name={mapping.name}
+                                            onChange={handleChange}
+                                            label={mapping.label}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         )
                     }}

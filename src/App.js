@@ -17,21 +17,12 @@ class App extends React.Component {
         // L’état local contient aussi la fonction de mise à jour donc elle va
         // être passée au fournisseur de contexte
         this.state = {
-            theme: Theme.light,
+            theme: Theme.dark,
             toggleTheme: this.toggleTheme,
             name:"launch"
         };
     }
 
-
-    setClassName = (props) => {
-        console.log("test")
-        if(props)
-        {
-            this.setState({...this.state, name:"" })
-        }
-
-    }
 
     render() {
 

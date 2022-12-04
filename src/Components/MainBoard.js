@@ -24,7 +24,7 @@ const MainBoard = () => {
             level: "100",
             switchCountScore: true,
             switchTimer: true,
-            switchDarkMode: false
+            switchDarkMode: true
         }
     )
     let count = 0
@@ -64,7 +64,6 @@ const MainBoard = () => {
         }
 
         count++
-        console.log(tmpScoring, count)
 
         if (tmpScoring.length === 4 && loading && count === 8) {
 
@@ -83,12 +82,6 @@ const MainBoard = () => {
             console.log(tmpScoring, scoring)
 
         }
-    }
-
-    const startGame = (props) => {
-
-        setStart(props)
-        //  initDropZone()
     }
 
     const setSettings = (props) => {
@@ -112,11 +105,6 @@ const MainBoard = () => {
 
     }
 
-    if (count === 0 && !loading) {
-        console.log(tmpScoring, loading)
-
-        //  setLoading(true)
-    }
 
     if (loading) {
         return (
