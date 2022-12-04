@@ -19,7 +19,7 @@ const ScoringTab = ({scoring}) => {
                         </thead>
                         <tbody>
                         {
-                            scoring.map((mapping, index) => {
+                            scoring.score.map((mapping, index) => {
                                 return (
                                     <tr key={index}>
                                         <th scope="row">{index + 1}</th>

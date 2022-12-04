@@ -15,8 +15,8 @@ const MainBoard = () => {
     const [start, setStart] = useState(false)
     const [loading, setLoading] = useState(false)
 
-    const {score} = useContext(ScoreContext)
-    const [scoring, setScoring] = useState([...score])
+    const {score, partNb} = useContext(ScoreContext)
+    const [scoring, setScoring] = useState({score: [...score], partNb: partNb})
     let tmpScoring = []
     const [settings, sendSettings] = useState(
         {
@@ -56,7 +56,7 @@ const MainBoard = () => {
 
     const setScore = (props) => {
         const {playerIndex, currentScore} = props
-        tmpScoring[playerIndex - 1] = {...scoring[playerIndex - 1]}
+        tmpScoring[playerIndex - 1] = {...scoring.score[playerIndex - 1]}
         tmpScoring[playerIndex - 1] = {
             playerIndex: playerIndex,
             currentScore: currentScore,
@@ -68,6 +68,7 @@ const MainBoard = () => {
         if (tmpScoring.length === 4 && loading && count === 8) {
 
             tmpScoring = tmpScoring.map((mapping, index) => {
+                console.log(mapping,parseInt(mapping.total) + parseInt(mapping.currentScore) )
                 return (
                     {
                         playerIndex: mapping.playerIndex,
@@ -76,8 +77,10 @@ const MainBoard = () => {
                     }
                 )
             })
+
             count = 0
-            setScoring(tmpScoring)
+            scoring.partNb++
+            setScoring({score: tmpScoring, partNb: scoring.partNb})
             setLoading(false)
             console.log(tmpScoring, scoring)
 
