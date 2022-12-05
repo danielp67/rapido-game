@@ -13,8 +13,8 @@ const MainMenu = (props) => {
         <>
             <ThemeContext.Consumer>
                 {({theme}) => (
-                    <div className={"overlay"}>
-                        <div className={`card launch-card text-center my-auto ${theme.className}`}>
+                    <div className={"overlay row"}>
+                        <div className={`card col-md-6 col-12 launch-card text-center my-auto ${theme.className}`}>
                             <TabGroup partNb={scoring.partNb}/>
                             <div className="card-body tab-content" id="myTabContent">
                                 <HomeTab

@@ -10,7 +10,6 @@ const MainBoard = () => {
 
     const [selectedSlot, setSelectedSlot] = useState("")
     const [droppedCard, setDroppedCard] = useState([])
-    const [initMainBoard, setInitMainBoard] = useState(false)
     const [stop, setStop] = useState(false)
     const [start, setStart] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -87,19 +86,11 @@ const MainBoard = () => {
         sendSettings(props)
     }
 
-    if (!initMainBoard) {
-        initDropZone()
-        setInitMainBoard(true)
-
-    }
-
-
     const setReloading = () => {
         setStop(false)
         setStart(true)
         setSelectedSlot("")
         setLoading(true)
-        //  setInitMainBoard(false)
         initDropZone()
 
     }

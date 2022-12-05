@@ -1,5 +1,4 @@
 import React from 'react';
-import {ThemeContext} from "../Shareable/ThemeContext";
 
 const HomeTab = (props) => {
 
@@ -18,28 +17,30 @@ const HomeTab = (props) => {
 
                         <h4 className="card-title fw-bold">Rapido game</h4>
                         {scoring.partNb === 0 ?
-                                "Bienvenue dans Rapido Game !"
-                          :  "Manche n°"+ scoring.partNb
-                        }<br/>
+                            <div>
+                                Bienvenue dans Rapido Game !<br/>
+                                Commencer une nouvelle partie ?
+                            </div>
 
-                        {scoring.partNb === 0 ?
-
-                            "Commencer une nouvelle partie ?"
-                            :  "Gagnant de la manche : joueur n°"+ winnerMatch[0].playerIndex
-                        }<br/>
-
+                          :   <div>
+                                Manche n°{scoring.partNb}<br/>
+                                Gagnant de la manche : joueur n°{winnerMatch[0].playerIndex}
+                            </div>
+                        }
 
                         {scoring.partNb === 0 ?
 
                             null
-                            :  <div>Le jeu est fini, le vainqueur est le joueur n°{winnerGame[0].playerIndex}
-                            <br/>Commencer une nouvelle partie ?</div>
+                            :  <div>
+                                Le jeu est fini, le vainqueur est le joueur n°{winnerGame[0].playerIndex}<br/>
+                                Commencer une nouvelle partie ?
+                        </div>
                         }
 
                     </div>
 
         </>
     )
-};
+}
 
 export default HomeTab;
