@@ -257,15 +257,16 @@ const Player = (props) => {
         sendScore()
     }
 
+
     useEffect(() => {
-        const timer = setTimeout(() => {
+        const playerSpeed = setTimeout(() => {
             if(start && !realPlayer && !stop)
             {
                 checkCardDroppable()
             }
         }, level);
 
-        return () => clearTimeout(timer);
+        return () => clearTimeout(playerSpeed);
     });
 
 

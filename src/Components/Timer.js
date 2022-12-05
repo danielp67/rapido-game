@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 
 const Timer = (props) => {
 
-    const [time, setTime] = useState(0);
-    const {start, stop, timerOn} = props
+ //   const [time, setTime] = useState(0);
+    const {time, setTime, stop, timerOn} = props
 
     const refreshTime = () => {
         let tmpTime = time
@@ -14,7 +14,7 @@ const Timer = (props) => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if(!stop && start && timerOn)
+            if(!stop && timerOn)
             {
                 refreshTime()
             }
@@ -23,10 +23,11 @@ const Timer = (props) => {
         return () => clearTimeout(timer);
     });
 
+
     return (
         <div className="row">
-           <div className="col-6 fs-3">Rapido Game  </div>
-            <div className="col-6 fs-3 text-end">
+           <div className="col-8 fs-3">Rapido Game  </div>
+            <div className="col-4 fs-3 text-end">
             <i className="fa fa-clock-o" aria-hidden="true"/>
             {timerOn ? " " + time +" s": " - "}
             </div>

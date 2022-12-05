@@ -13,14 +13,14 @@ const MainBoard = () => {
     const [stop, setStop] = useState(false)
     const [start, setStart] = useState(false)
     const [loading, setLoading] = useState(false)
-
+    const [time, setTime] = useState(0);
     const {score, partNb} = useContext(ScoreContext)
     const [scoring, setScoring] = useState({score: [...score], partNb: partNb})
     let tmpScoring = []
     const [settings, sendSettings] = useState(
         {
             nbPlayer: "4",
-            level: "100",
+            level: "1000",
             switchCountScore: true,
             switchTimer: true,
             switchDarkMode: true
@@ -50,6 +50,7 @@ const MainBoard = () => {
 
         console.log("player win :" + props)
         setStop(true)
+        clearTimeout()
     }
 
     const setScore = (props) => {
@@ -95,6 +96,10 @@ const MainBoard = () => {
 
     }
 
+    const updateTime = (props) => {
+        setTime(props)
+    }
+
 
     if (loading) {
         return (
@@ -104,6 +109,8 @@ const MainBoard = () => {
                         <div className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
                         <Timer
                             start={start}
+                            time={time}
+                            setTime={updateTime}
                             stop={stop}
                             timerOn={settings.switchTimer}
                         />
