@@ -96,7 +96,7 @@ const MainBoard = () => {
     }
 
 
-    if (loading==false) {
+    if (loading) {
         return (
             <>
                 <ScoreContext.Provider value={{score: scoring, partNb: partNb}}>
