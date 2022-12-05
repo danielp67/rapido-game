@@ -7,8 +7,11 @@ import {ParamsContext} from "../Context/ParamsContext";
 const Player = (props) => {
 
     const {realPlayer, playerIndex, color, selectedSlot, setSelectedSlot, droppedCard, setDroppedCard, start, stop, gameStop, setScore, level, loading} = props
+    const {params} = useContext(ParamsContext)
     const [currentCard, setCurrentCard] = useState({})
-    const [initMainBoard, setInitMainBoard] = useState(false)
+    const [slotName, setSlotName] = useState({})
+
+    const [initPlayer, setInitPlayer] = useState(false)
     const [deck, setDeck] = useState(
         {
        //     initialDeck: [],
@@ -20,10 +23,6 @@ const Player = (props) => {
             tmpSlot3: []
         }
     )
-    const {params} = useContext(ParamsContext)
-
-   // const playerSlot =  ["reserveSlot", "tmpSlot1", "tmpSlot2", "tmpSlot3", "rapidoSlot"]
-
 
     const initDeck = () => {
         let tmpDeck = []
@@ -75,14 +74,15 @@ const Player = (props) => {
         setDeck(tmpDeck)
     }
 
-    const setCard = (props) => {
-        setCurrentCard(props)
+    const setCard = ({card, slotName}) => {
+        console.log(props)
+        setCurrentCard(card)
+        setSlotName(slotName)
     };
 
     const setCardOnDbClick = (props) => {
 
         const {card, slotName} = props
-
 
         let isCardDropped = false
         let tmpDroppedCard = [...droppedCard]
@@ -92,7 +92,6 @@ const Player = (props) => {
         {
             let previousCard = tmpDroppedCard[i][0]
 
-
             if(
                 (previousCard.value + 1 === currentCard.value &&
                     previousCard.suit === currentCard.suit) ||
@@ -101,37 +100,13 @@ const Player = (props) => {
             ) {
 
                 isCardDropped=true
-                let tmpDeck = {...deck}
-                tmpDeck[slotName].shift()
-
-
-                if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
-                {
-                    let tmp = tmpDeck["rapidoSlot"].shift()
-                    tmpDeck[slotName].unshift(tmp)
-
-                }
-
-                if(tmpDeck["rapidoSlot"].length === 0)
-                {
-                    console.log("winner")
-                    gameStop(playerIndex)
-                    tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
-                }
-
-
-                setDeck(tmpDeck)
-                tmpDroppedCard[i].unshift(currentCard)
-                setDroppedCard(tmpDroppedCard)
-
+                dropCard(slotName, currentCard, tmpDroppedCard, i)
                 break;
             }
 
         }
-
-       // console.log(isCardDropped,"dle click")
-
     }
+
 
     const drop = () => {
         let tmpDroppedCard = [...droppedCard]
@@ -139,12 +114,12 @@ const Player = (props) => {
         {
 
             let previousCard = tmpDroppedCard[selectedSlot][0]
-            let slotName = currentCard.slotName
+        //    let slotName = slotName
 
             if (
-                (previousCard.value + 1 === currentCard.card.value &&
-                    previousCard.suit === currentCard.card.suit) ||
-                (previousCard.value === 0 && currentCard.card.value === 1)
+                (previousCard.value + 1 === currentCard.value &&
+                    previousCard.suit === currentCard.suit) ||
+                (previousCard.value === 0 && currentCard.value === 1)
 
             ) {
 
@@ -160,12 +135,12 @@ const Player = (props) => {
                 if(tmpDeck["rapidoSlot"].length === 0)
                 {
                     console.log("winner")
-
+                    gameStop(playerIndex)
                     tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
                 }
 
                 setDeck(tmpDeck)
-                tmpDroppedCard[selectedSlot].unshift(currentCard.card)
+                tmpDroppedCard[selectedSlot].unshift(currentCard)
                 setDroppedCard(tmpDroppedCard)
                 setSelectedSlot("")
 
@@ -199,28 +174,7 @@ const Player = (props) => {
                 ) {
 
                     isCardDropped=true
-                    let tmpDeck = {...deck}
-                    tmpDeck[slotName].shift()
-
-
-                    if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
-                    {
-                        let tmp = tmpDeck["rapidoSlot"].shift()
-                        tmpDeck[slotName].unshift(tmp)
-
-                    }
-
-                    if(tmpDeck["rapidoSlot"].length === 0)
-                    {
-                        console.log("winner")
-                        gameStop(playerIndex)
-                        tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
-                    }
-
-
-                    setDeck(tmpDeck)
-                    tmpDroppedCard[i].unshift(currentCard)
-                    setDroppedCard(tmpDroppedCard)
+                    dropCard(slotName, currentCard, tmpDroppedCard, i)
                 }
             }
 
@@ -245,9 +199,37 @@ const Player = (props) => {
 
     }
 
-    if (!initMainBoard) {
+    function dropCard(slotName, currentCard, tmpDroppedCard, i){
+
+        let tmpDeck = {...deck}
+        tmpDeck[slotName].shift()
+
+
+        if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
+        {
+            let tmp = tmpDeck["rapidoSlot"].shift()
+            tmpDeck[slotName].unshift(tmp)
+
+        }
+
+        if(tmpDeck["rapidoSlot"].length === 0)
+        {
+            console.log("winner")
+            gameStop(playerIndex)
+            tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
+        }
+
+
+        setDeck(tmpDeck)
+        tmpDroppedCard[i].unshift(currentCard)
+        setDroppedCard(tmpDroppedCard)
+    }
+
+
+
+if (!initPlayer) {
         initDeck()
-        setInitMainBoard(true)
+        setInitPlayer(true)
 
     }
 
@@ -255,6 +237,7 @@ const Player = (props) => {
     {
         sendScore()
     }
+
 
 
     useEffect(() => {
