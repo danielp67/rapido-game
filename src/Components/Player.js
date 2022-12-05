@@ -289,11 +289,11 @@ const Player = (props) => {
                                 /> : null}
                                 {mapping==="reserveSlot" || mapping==="rapidoSlot" ? deck[mapping].length : null }
                                 {mapping==="tmpSlot2" && realPlayer ?
-                                    <div className="row">
+
                                     <ResumeMenu
                                         gameStop={gameStop}
                                     />
-                                 </div> : null }
+                                  : null }
 
                             </div>
                         )
@@ -307,7 +307,7 @@ const Player = (props) => {
             </div>
     )
 
-};
+}
 
 
 export default Player;

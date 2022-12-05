@@ -96,17 +96,18 @@ const MainBoard = () => {
     }
 
 
-    if (loading) {
+    if (loading==false) {
         return (
             <>
                 <ScoreContext.Provider value={{score: scoring, partNb: partNb}}>
                     <div className="row">
-                        <h1 className="text-center">Rapido Game</h1>
+                        <div className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
                         <Timer
                             start={start}
                             stop={stop}
                             timerOn={settings.switchTimer}
                         />
+                    </div>
                     </div>
 
                     <div className="row">

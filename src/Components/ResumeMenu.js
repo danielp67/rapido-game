@@ -7,7 +7,7 @@ const ResumeMenu = (props) => {
     return (
 
         <>
-            <button type="button" className="btn btn-primary btn-lg col-4 m-2" data-bs-toggle="modal"
+            <button type="button" className="btn btn-info btn-lg my-2" data-bs-toggle="modal"
                     data-bs-target="#staticBackdropResume"
                 onClick={gameStop}
             >

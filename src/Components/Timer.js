@@ -23,22 +23,17 @@ const Timer = (props) => {
         return () => clearTimeout(timer);
     });
 
-    if(timerOn){
     return (
-        <div className="text-center">
-            <i className="fa fa-clock-o" aria-hidden="true"/> {time} seconds
+        <div className="row">
+           <div className="col-6 fs-3">Rapido Game  </div>
+            <div className="col-6 fs-3 text-end">
+            <i className="fa fa-clock-o" aria-hidden="true"/>
+            {timerOn ? " " + time +" s": " - "}
+            </div>
         </div>
     )
-    }
-    else{
-        return(
-        <div className="text-center">
-            <i className="fa fa-clock-o" aria-hidden="true"/> No timer
-         </div>
-        )
-    }
 
-}
+};
 
 
 export default Timer;
