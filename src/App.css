@@ -37,33 +37,6 @@ body{
 }
 
 .launch .overlay {
-  opacity: 1;
   transition: 1.5s ease;
- animation: launcher 2s linear ;
-}
-
-
-
-.overlay {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: 2.5s ease;
-
-  background-color: #008CBA;
-  z-index: 999;
-
-}
-
-
-.launch-card {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-
+  animation: launcher 2s linear ;
 }
