@@ -4,7 +4,7 @@ import DropZone from "./DropZone";
 import Timer from "./Timer";
 import Player from "./Player";
 import MainMenu from "./MainMenu";
-import {ScoreContext} from "../Shareable/ScoreContext";
+import {ScoreContext} from "../Context/ScoreContext";
 
 const MainBoard = () => {
 

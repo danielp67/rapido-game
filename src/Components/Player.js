@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import NextButton from "./NextButton";
 import PlayerSlot from "./PlayerSlot";
 import ResumeMenu from "./ResumeMenu";
+import {ParamsContext} from "../Context/ParamsContext";
 
 const Player = (props) => {
 
@@ -19,19 +20,17 @@ const Player = (props) => {
             tmpSlot3: []
         }
     )
-    const playerSlot =  ["reserveSlot", "tmpSlot1", "tmpSlot2", "tmpSlot3", "rapidoSlot"]
+    const {params} = useContext(ParamsContext)
+
+   // const playerSlot =  ["reserveSlot", "tmpSlot1", "tmpSlot2", "tmpSlot3", "rapidoSlot"]
 
 
     const initDeck = () => {
-        const suits = ["primary", "success", "warning", "danger"];
-        const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-         //  const suits = ["primary", "success"];
-       //  const values = [1,2];
         let tmpDeck = []
 // create a deck of cards
-        for (let i = 0; i < suits.length; i++) {
-            for (let x = 0; x < values.length; x++) {
-                let card = {value: values[x], suit: suits[i]};
+        for (let i = 0; i < params.suits.length; i++) {
+            for (let x = 0; x < params.values.length; x++) {
+                let card = {value: params.values[x], suit: params.suits[i]};
                 tmpDeck.push(card);
             }
         }
@@ -186,10 +185,10 @@ const Player = (props) => {
         {
             let previousCard = tmpDroppedCard[i][0]
 
-            for(let j = 0; j< playerSlot.length;j++)
+            for(let j = 0; j< params.playerSlot.length;j++)
             {
 
-                let slotName = playerSlot[j]
+                let slotName = params.playerSlot[j]
                 let currentCard = deck[slotName][0]
 
                 if (
@@ -273,7 +272,7 @@ const Player = (props) => {
     return (
             <div className={`row text-center bg-opacity-50 bg-${color}`}>
 
-                {playerSlot.map((mapping, index) => {
+                {params.playerSlot.map((mapping, index) => {
                         return(
 
                             <div key={index} className="col-2 my-4">

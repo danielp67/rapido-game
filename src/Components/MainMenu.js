@@ -2,7 +2,7 @@ import React from 'react';
 import SettingsTab from "./SettingsTab";
 import ScoringTab from "./ScoringTab";
 import TabGroup from "../Shareable/TabGroup";
-import {ThemeContext} from "../Shareable/ThemeContext";
+import {ThemeContext} from "../Context/ThemeContext";
 import HomeTab from "./HomeTab";
 
 const MainMenu = (props) => {

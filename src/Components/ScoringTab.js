@@ -1,5 +1,5 @@
 import React from 'react';
-import {ThemeContext} from "../Shareable/ThemeContext";
+import {ThemeContext} from "../Context/ThemeContext";
 
 const ScoringTab = ({scoring}) => {
 

@@ -1,8 +1,8 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 
 const SortedSlot = (props) => {
 
-    const {slotIndex, setSelectedSlot, selectedSlot, droppedCard} = props
+    const {slotIndex, setSelectedSlot, droppedCard} = props
     const[enter, setEnter]=  useState(false)
 
     const dragEnter = () => {

@@ -1,6 +1,6 @@
 import './App.css';
 import MainBoard from "./Components/MainBoard";
-import {ThemeContext, Theme} from "./Shareable/ThemeContext";
+import {ThemeContext, Theme} from "./Context/ThemeContext";
 import React from "react";
 
 class App extends React.Component {

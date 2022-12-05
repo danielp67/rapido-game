@@ -1,15 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import SwitchButton from "../Shareable/SwitchButton";
-import {ThemeContext} from "../Shareable/ThemeContext";
+import {ThemeContext} from "../Context/ThemeContext";
 import RadioGroup from "../Shareable/RadioGroup";
+import {ParamsContext} from "../Context/ParamsContext";
 
 
 const SettingsTab = (props) => {
 
     const {settings, setSettings} = props
-    const switchParams = [{name: "switchCountScore", label: "Comptage des points"},
-        {name: "switchTimer", label: "Timer"},
-        {name: "switchDarkMode", label: "Dark Mode"}]
+    const {params} = useContext(ParamsContext)
 
         return (
 
@@ -36,10 +35,7 @@ const SettingsTab = (props) => {
                                     <RadioGroup
                                         settings={settings}
                                         name={"nbPlayer"}
-                                        radioParams={[{label: "4", value: "4"},
-                                            {label: "8", value: "8"},
-                                            {label: "12", value: "12"}
-                                        ]}
+                                        radioParams={params.radioNbPlayer}
                                         handleChange={handleChange}
                                     />
                                     <hr/>
@@ -47,14 +43,11 @@ const SettingsTab = (props) => {
                                     <RadioGroup
                                         settings={settings}
                                         name={"level"}
-                                        radioParams={[{label: "Easy", value: "3500"},
-                                            {label: "Medium", value: "2000"},
-                                            {label: "Hard", value: "1000"}
-                                        ]}
+                                        radioParams={params.radioLevel}
                                         handleChange={handleChange}
                                     />
                                     <hr/>
-                                    {switchParams.map((mapping, index) => (
+                                    {params.switchParams.map((mapping, index) => (
                                         <SwitchButton
                                             key={index}
                                             settings={settings}
