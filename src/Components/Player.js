@@ -83,8 +83,6 @@ const Player = (props) => {
     const setCardOnDbClick = (props) => {
 
         const {card, slotName} = props
-
-        let isCardDropped = false
         let tmpDroppedCard = [...droppedCard]
         let currentCard = card
 
@@ -92,14 +90,8 @@ const Player = (props) => {
         {
             let previousCard = tmpDroppedCard[i][0]
 
-            if(
-                (previousCard.value + 1 === currentCard.value &&
-                    previousCard.suit === currentCard.suit) ||
-                (previousCard.value === 0 && currentCard.value === 1)
+            if (checkCard(previousCard, currentCard)) {
 
-            ) {
-
-                isCardDropped=true
                 dropCard(slotName, currentCard, tmpDroppedCard, i)
                 break;
             }
@@ -112,41 +104,15 @@ const Player = (props) => {
         let tmpDroppedCard = [...droppedCard]
         if(selectedSlot!=="")
         {
-
             let previousCard = tmpDroppedCard[selectedSlot][0]
-        //    let slotName = slotName
 
-            if (
-                (previousCard.value + 1 === currentCard.value &&
-                    previousCard.suit === currentCard.suit) ||
-                (previousCard.value === 0 && currentCard.value === 1)
+            if (checkCard(previousCard, currentCard)) {
 
-            ) {
-
-                let tmpDeck = {...deck}
-                tmpDeck[slotName].shift()
-
-                if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
-                {
-                    let tmp = tmpDeck["rapidoSlot"].shift()
-                    tmpDeck[slotName].unshift(tmp)
-
-                }
-                if(tmpDeck["rapidoSlot"].length === 0)
-                {
-                    console.log("winner")
-                    gameStop(playerIndex)
-                    tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
-                }
-
-                setDeck(tmpDeck)
-                tmpDroppedCard[selectedSlot].unshift(currentCard)
-                setDroppedCard(tmpDroppedCard)
+                dropCard(slotName, currentCard, tmpDroppedCard, selectedSlot)
                 setSelectedSlot("")
 
             }
         }
-
     }
 
 
@@ -154,7 +120,6 @@ const Player = (props) => {
 
         let isCardDropped = false
         let tmpDroppedCard = [...droppedCard]
-
 
         for(let i = 0; i<tmpDroppedCard.length;i++)
         {
@@ -166,19 +131,12 @@ const Player = (props) => {
                 let slotName = params.playerSlot[j]
                 let currentCard = deck[slotName][0]
 
-                if (
-                    (previousCard.value + 1 === currentCard.value &&
-                        previousCard.suit === currentCard.suit) ||
-                    (previousCard.value === 0 && currentCard.value === 1)
-
-                ) {
+                if (checkCard(previousCard, currentCard)) {
 
                     isCardDropped=true
                     dropCard(slotName, currentCard, tmpDroppedCard, i)
                 }
             }
-
-
         }
 
         if(!isCardDropped)
@@ -225,6 +183,13 @@ const Player = (props) => {
         setDroppedCard(tmpDroppedCard)
     }
 
+
+    function checkCard(previousCard, currentCard)
+    {
+        return (previousCard.value + 1 === currentCard.value &&
+            previousCard.suit === currentCard.suit) ||
+            (previousCard.value === 0 && currentCard.value === 1);
+    }
 
 
 if (!initPlayer) {
