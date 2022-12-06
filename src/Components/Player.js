@@ -157,12 +157,14 @@ const Player = (props) => {
 
     const sendScore = () => {
         let tmpDeck = {...deck}
-        let score = 30 - tmpDeck.reserveSlot.length
-            - tmpDeck.tmpSlot1.length
-            - tmpDeck.tmpSlot2.length
-            - tmpDeck.tmpSlot3.length
-            - (tmpDeck.rapidoSlot[0].value !== "X" ? tmpDeck.rapidoSlot.length * 2 : 0)
+        let score = 40 - tmpDeck.reserveSlot.length
+            - (tmpDeck.tmpSlot1[0].value !== "X" ? tmpDeck.tmpSlot1.length : 0)
+            - (tmpDeck.tmpSlot2[0].value !== "X" ? tmpDeck.tmpSlot2.length : 0)
+            - (tmpDeck.tmpSlot3[0].value !== "X" ? tmpDeck.tmpSlot3.length : 0)
+            - (tmpDeck.rapidoSlot[0].value !== "X" ? tmpDeck.rapidoSlot.length : 0)
+            - (tmpDeck.rapidoSlot[0].value !== "X" ? tmpDeck.rapidoSlot.length*2 : 0)
 
+console.log(playerIndex, tmpDeck)
         setScore({playerIndex: playerIndex, currentScore: score})
 
     }

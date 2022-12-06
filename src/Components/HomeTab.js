@@ -30,11 +30,12 @@ const HomeTab = (props) => {
 
                         {scoring.partNb > 0 && !start ?
 
-                            null
-                            :  <div>
+                              <div>
                                 Le jeu est fini, le vainqueur est le joueur n°{winnerGame[0].playerIndex}<br/>
                                 Commencer une nouvelle partie ?
                         </div>
+
+                            :null
                         }
 
                     </div>

@@ -26,7 +26,7 @@ class App extends React.Component {
 
         return (
             <ThemeContext.Provider value={this.state}>
-                <div className={`container-fluid vh-100 ${this.state.theme.className}`}>
+                <div className={`container-fluid min-vh-100 ${this.state.theme.className}`}>
                     <MainBoard/>
                 </div>
             </ThemeContext.Provider>
