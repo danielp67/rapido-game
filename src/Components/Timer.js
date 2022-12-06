@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 
 const Timer = (props) => {
 
- //   const [time, setTime] = useState(0);
-    const {time, setTime, stop, timerOn} = props
+    const {time, setTime, stop, pause, timerOn} = props
 
     const refreshTime = () => {
         let tmpTime = time
@@ -14,7 +13,7 @@ const Timer = (props) => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if(!stop && timerOn)
+            if(!stop && !pause && timerOn)
             {
                 refreshTime()
             }

@@ -6,7 +6,23 @@ import {ParamsContext} from "../Context/ParamsContext";
 
 const Player = (props) => {
 
-    const {realPlayer, playerIndex, color, selectedSlot, setSelectedSlot, droppedCard, setDroppedCard, start, stop, gameStop, setScore, level, loading} = props
+    const {
+        realPlayer,
+        playerIndex,
+        color,
+        selectedSlot,
+        setSelectedSlot,
+        droppedCard,
+        setDroppedCard,
+        start,
+        stop,
+        pause,
+        gameStop,
+        setScore,
+        level,
+        loading,
+        gamePause
+    } = props
     const {params} = useContext(ParamsContext)
     const [currentCard, setCurrentCard] = useState({})
     const [slotName, setSlotName] = useState({})
@@ -14,8 +30,8 @@ const Player = (props) => {
     const [initPlayer, setInitPlayer] = useState(false)
     const [deck, setDeck] = useState(
         {
-       //     initialDeck: [],
-     //       reserveDeck: [],
+            //     initialDeck: [],
+            //       reserveDeck: [],
             reserveSlot: [],
             rapidoSlot: [],
             tmpSlot1: [],
@@ -46,7 +62,7 @@ const Player = (props) => {
         let tmpReserveSlot = [...tmpDeck]
         tmpReserveSlot.splice(0, 13)
 
-    //    let initalDeck = tmpDeck
+        //    let initalDeck = tmpDeck
         let reserveSlot = tmpReserveSlot
         let rapidoSlot = tmpDeck.slice(0, 10)
         let tmpSlot1 = tmpDeck.slice(10, 11)
@@ -55,8 +71,8 @@ const Player = (props) => {
 
         setDeck(
             {
-              //  initialDeck: initalDeck,
-               // reserveDeck: [],
+                //  initialDeck: initalDeck,
+                // reserveDeck: [],
                 reserveSlot: reserveSlot,
                 tmpSlot1: tmpSlot1,
                 tmpSlot2: tmpSlot2,
@@ -75,7 +91,6 @@ const Player = (props) => {
     }
 
     const setCard = ({card, slotName}) => {
-        console.log(props)
         setCurrentCard(card)
         setSlotName(slotName)
     };
@@ -86,8 +101,7 @@ const Player = (props) => {
         let tmpDroppedCard = [...droppedCard]
         let currentCard = card
 
-        for(let i = 0; i<tmpDroppedCard.length;i++)
-        {
+        for (let i = 0; i < tmpDroppedCard.length; i++) {
             let previousCard = tmpDroppedCard[i][0]
 
             if (checkCard(previousCard, currentCard)) {
@@ -102,8 +116,7 @@ const Player = (props) => {
 
     const drop = () => {
         let tmpDroppedCard = [...droppedCard]
-        if(selectedSlot!=="")
-        {
+        if (selectedSlot !== "") {
             let previousCard = tmpDroppedCard[selectedSlot][0]
 
             if (checkCard(previousCard, currentCard)) {
@@ -121,26 +134,23 @@ const Player = (props) => {
         let isCardDropped = false
         let tmpDroppedCard = [...droppedCard]
 
-        for(let i = 0; i<tmpDroppedCard.length;i++)
-        {
+        for (let i = 0; i < tmpDroppedCard.length; i++) {
             let previousCard = tmpDroppedCard[i][0]
 
-            for(let j = 0; j< params.playerSlot.length;j++)
-            {
+            for (let j = 0; j < params.playerSlot.length; j++) {
 
                 let slotName = params.playerSlot[j]
                 let currentCard = deck[slotName][0]
 
                 if (checkCard(previousCard, currentCard)) {
 
-                    isCardDropped=true
+                    isCardDropped = true
                     dropCard(slotName, currentCard, tmpDroppedCard, i)
                 }
             }
         }
 
-        if(!isCardDropped)
-        {
+        if (!isCardDropped) {
             nextCard()
         }
     }
@@ -150,28 +160,26 @@ const Player = (props) => {
         let score = 30 - tmpDeck.reserveSlot.length
             - tmpDeck.tmpSlot1.length
             - tmpDeck.tmpSlot2.length
-        - tmpDeck.tmpSlot3.length
+            - tmpDeck.tmpSlot3.length
             - (tmpDeck.rapidoSlot[0].value !== "X" ? tmpDeck.rapidoSlot.length * 2 : 0)
 
-        setScore({playerIndex: playerIndex, currentScore:score})
+        setScore({playerIndex: playerIndex, currentScore: score})
 
     }
 
-    function dropCard(slotName, currentCard, tmpDroppedCard, i){
+    function dropCard(slotName, currentCard, tmpDroppedCard, i) {
 
         let tmpDeck = {...deck}
         tmpDeck[slotName].shift()
 
 
-        if(slotName==="tmpSlot1" || slotName==="tmpSlot2" || slotName==="tmpSlot3")
-        {
+        if (slotName === "tmpSlot1" || slotName === "tmpSlot2" || slotName === "tmpSlot3") {
             let tmp = tmpDeck["rapidoSlot"].shift()
             tmpDeck[slotName].unshift(tmp)
 
         }
 
-        if(tmpDeck["rapidoSlot"].length === 0)
-        {
+        if (tmpDeck["rapidoSlot"].length === 0) {
             console.log("winner")
             gameStop(playerIndex)
             tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
@@ -184,31 +192,26 @@ const Player = (props) => {
     }
 
 
-    function checkCard(previousCard, currentCard)
-    {
+    function checkCard(previousCard, currentCard) {
         return (previousCard.value + 1 === currentCard.value &&
             previousCard.suit === currentCard.suit) ||
             (previousCard.value === 0 && currentCard.value === 1);
     }
 
 
-if (!initPlayer) {
+    if (!initPlayer) {
         initDeck()
         setInitPlayer(true)
 
     }
 
-    if(stop && loading)
-    {
+    if (stop && loading) {
         sendScore()
     }
 
-
-
     useEffect(() => {
         const playerSpeed = setTimeout(() => {
-            if(start && !realPlayer && !stop)
-            {
+            if (!realPlayer && !pause) {
                 checkCardDroppable()
             }
         }, level);
@@ -218,41 +221,41 @@ if (!initPlayer) {
 
 
     return (
-            <div className={`row text-center bg-opacity-50 bg-${color}`}>
+        <div className={`row text-center bg-opacity-50 bg-${color}`}>
 
-                {params.playerSlot.map((mapping, index) => {
-                        return(
+            {params.playerSlot.map((mapping, index) => {
+                return (
 
-                            <div key={index} className="col-2 my-4">
-                                <PlayerSlot
-                                    realPlayer={realPlayer}
-                                    slotName={mapping}
-                                    deck={deck}
-                                    setCurrentCard={setCard}
-                                    setCardOnDbClick={setCardOnDbClick}
-                                    drop={drop}
-                                />
-                                {realPlayer && mapping==="reserveSlot"  ?  <NextButton
-                                    nextCard={nextCard}
-                                /> : null}
-                                {mapping==="reserveSlot" || mapping==="rapidoSlot" ? deck[mapping].length : null }
-                                {mapping==="tmpSlot2" && realPlayer ?
+                    <div key={index} className="col-2 my-4">
+                        <PlayerSlot
+                            realPlayer={realPlayer}
+                            slotName={mapping}
+                            deck={deck}
+                            setCurrentCard={setCard}
+                            setCardOnDbClick={setCardOnDbClick}
+                            drop={drop}
+                        />
+                        {realPlayer && mapping === "reserveSlot" ? <NextButton
+                            nextCard={nextCard}
+                        /> : null}
+                        {mapping === "reserveSlot" || mapping === "rapidoSlot" ? deck[mapping].length : null}
+                        {mapping === "tmpSlot2" && realPlayer ?
 
-                                    <ResumeMenu
-                                        gameStop={gameStop}
-                                    />
-                                  : null }
+                            <ResumeMenu
+                                gamePause={gamePause}
+                            />
+                            : null}
 
-                            </div>
-                        )
-                })}
+                    </div>
+                )
+            })}
 
-                <div className="col-2 my-auto d-flex flex-column">
-                    <i className="fa fa-user" aria-hidden="true"/>
-                    {playerIndex}
-                </div>
-
+            <div className="col-2 my-auto d-flex flex-column">
+                <i className="fa fa-user" aria-hidden="true"/>
+                {playerIndex}
             </div>
+
+        </div>
     )
 
 }

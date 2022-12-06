@@ -6,11 +6,12 @@ import Player from "./Player";
 import MainMenu from "./MainMenu";
 import {ScoreContext} from "../Context/ScoreContext";
 
-const MainBoard = () => {
+const MainBoard = ({reloadGame}) => {
 
     const [selectedSlot, setSelectedSlot] = useState("")
     const [droppedCard, setDroppedCard] = useState([])
     const [stop, setStop] = useState(false)
+    const [pause, setPause] = useState(false)
     const [start, setStart] = useState(false)
     const [loading, setLoading] = useState(false)
     const [time, setTime] = useState(0);
@@ -45,12 +46,21 @@ const MainBoard = () => {
         setDroppedCard(props)
     }
 
-
     const gameStop = (props) => {
-
         console.log("player win :" + props)
         setStop(true)
         clearTimeout()
+    }
+
+    const gamePause = (props) => {
+        if(props === "quit")
+        {
+            reloadGame()
+        }
+        else{
+            setPause(props)
+            clearTimeout()
+        }
     }
 
     const setScore = (props) => {
@@ -62,7 +72,7 @@ const MainBoard = () => {
             total: tmpScoring[playerIndex - 1].total ? tmpScoring[playerIndex - 1].total : 0
         }
         count++
-        if (tmpScoring.length === settings.nbPlayer*1 && loading && count === settings.nbPlayer*2) {
+        if (tmpScoring.length === settings.nbPlayer * 1 && loading && count === settings.nbPlayer * 2) {
 
             tmpScoring = tmpScoring.map((mapping, index) => {
                 return (
@@ -92,6 +102,7 @@ const MainBoard = () => {
         setStart(true)
         setSelectedSlot("")
         setLoading(true)
+        setTime(0)
         initDropZone()
 
     }
@@ -102,19 +113,21 @@ const MainBoard = () => {
 
 
     if (loading) {
+
         return (
             <>
                 <ScoreContext.Provider value={{score: scoring, partNb: partNb}}>
                     <div className="row">
                         <div className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
-                        <Timer
-                            start={start}
-                            time={time}
-                            setTime={updateTime}
-                            stop={stop}
-                            timerOn={settings.switchTimer}
-                        />
-                    </div>
+                            <Timer
+                                start={start}
+                                pause={pause}
+                                time={time}
+                                setTime={updateTime}
+                                stop={stop}
+                                timerOn={settings.switchTimer}
+                            />
+                        </div>
                     </div>
 
                     <div className="row">
@@ -129,6 +142,7 @@ const MainBoard = () => {
                             <Bots
                                 start={start}
                                 stop={stop}
+                                pause={pause}
                                 droppedCard={droppedCard}
                                 setDroppedCard={drop}
                                 gameStop={gameStop}
@@ -136,6 +150,8 @@ const MainBoard = () => {
                                 level={parseInt(settings.level)}
                                 loading={loading}
                                 settings={settings}
+                                gamePause={gamePause}
+
                             />
                         </div>
                     </div>
@@ -152,10 +168,12 @@ const MainBoard = () => {
                                 setDroppedCard={drop}
                                 gameStop={gameStop}
                                 start={start}
+                                pause={pause}
                                 stop={stop}
                                 setScore={setScore}
                                 level={parseInt(settings.level)}
                                 loading={loading}
+                                gamePause={gamePause}
 
                             />
                         </div>

@@ -3,9 +3,8 @@ import Player from "./Player";
 
 const Bots = (props) => {
 
-    const {droppedCard, setDroppedCard, gameStop, setScore, stop, start, level, loading, settings} = props
+    const {droppedCard, setDroppedCard, gameStop, setScore, stop, pause, start, level, loading, settings, gamePause} = props
     const color = ["primary", "success", "danger", "warning", "primary", "success", "danger", "warning", "primary", "success", "danger"]
-
 
     return (
         <>
@@ -22,11 +21,12 @@ const Bots = (props) => {
                             setDroppedCard={setDroppedCard}
                             gameStop={gameStop}
                             start={start}
+                            pause={pause}
                             stop={stop}
                             setScore={setScore}
                             level={level}
                             loading={loading}
-
+                            gamePause={gamePause}
                         />
 
                     )
