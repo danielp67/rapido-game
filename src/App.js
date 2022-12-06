@@ -19,26 +19,16 @@ class App extends React.Component {
         this.state = {
             theme: Theme.dark,
             toggleTheme: this.toggleTheme,
-           // name:"launch"
         };
-    }
-
-    reloadGame = (props) => {
-        console.log(props)
-
     }
 
     render() {
 
         return (
             <ThemeContext.Provider value={this.state}>
-                <div className={`container-fluid vh-100 ${this.state.theme.className} ${this.state.name}`}>
-
-                    <MainBoard
-                    reloadGame={this.reloadGame}
-                    />
+                <div className={`container-fluid vh-100 ${this.state.theme.className}`}>
+                    <MainBoard/>
                 </div>
-
             </ThemeContext.Provider>
         );
     }

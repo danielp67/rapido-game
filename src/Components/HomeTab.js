@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomeTab = (props) => {
 
-    const {scoring} = props
+    const {scoring, start} = props
     let winnerMatch= [...scoring.score]
     let winnerGame = [...scoring.score]
 
@@ -16,7 +16,7 @@ const HomeTab = (props) => {
                          aria-labelledby="home-tab" tabIndex="0">
 
                         <h4 className="card-title fw-bold">Rapido game</h4>
-                        {scoring.partNb === 0 ?
+                        {!start ?
                             <div>
                                 Bienvenue dans Rapido Game !<br/>
                                 Commencer une nouvelle partie ?
@@ -28,7 +28,7 @@ const HomeTab = (props) => {
                             </div>
                         }
 
-                        {scoring.partNb === 0 ?
+                        {scoring.partNb > 0 && !start ?
 
                             null
                             :  <div>

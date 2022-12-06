@@ -30,13 +30,13 @@ const ResumeMenu = (props) => {
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary"
                             data-bs-dismiss="modal"
-                            onClick={()=>gamePause(false)}>
+                            onClick={()=>gamePause("quit")}>
                         <i className="fa fa-sign-in" aria-hidden="true"/> Quitter la partie
                     </button>
                     <button type="button" className="btn btn-primary"
                             data-bs-dismiss="modal"
-                            onClick={()=>gamePause("quit")}>
-                        <i className="fa fa-play" aria-hidden="true"/> Continuer
+                            onClick={()=>gamePause(false)}>
+                    <i className="fa fa-play" aria-hidden="true"/> Continuer
                     </button>
                 </div>
             </Modal>

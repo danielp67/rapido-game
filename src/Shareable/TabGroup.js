@@ -1,7 +1,7 @@
 import React from 'react';
 import TabItem from "./TabItem";
 
-const TabGroup = ({partNb}) => {
+const TabGroup = ({start}) => {
     const items = ["home", "score", "settings", "tuto"]
 
 
@@ -9,7 +9,7 @@ const TabGroup = ({partNb}) => {
         <ul className=" nav nav-tabs" id="myTab" role="tablist">
             {items.map((mapping, index) => {
                 let disabled = false
-                if(mapping === "settings" && partNb > 0)
+                if((mapping === "settings" && start) || (mapping === "score" && !start))
                 {
                     disabled=true
                 }

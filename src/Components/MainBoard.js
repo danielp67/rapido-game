@@ -6,7 +6,7 @@ import Player from "./Player";
 import MainMenu from "./MainMenu";
 import {ScoreContext} from "../Context/ScoreContext";
 
-const MainBoard = ({reloadGame}) => {
+const MainBoard = () => {
 
     const [selectedSlot, setSelectedSlot] = useState("")
     const [droppedCard, setDroppedCard] = useState([])
@@ -14,14 +14,15 @@ const MainBoard = ({reloadGame}) => {
     const [pause, setPause] = useState(false)
     const [start, setStart] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [time, setTime] = useState(0);
+    const [time, setTime] = useState(0)
     const {score, partNb} = useContext(ScoreContext)
     const [scoring, setScoring] = useState({score: [...score], partNb: partNb})
     let tmpScoring = []
+    let tmpScoring2 = [...score]
     const [settings, sendSettings] = useState(
         {
             nbPlayer: "4",
-            level: "1000",
+            level: "100",
             switchCountScore: true,
             switchTimer: true,
             switchDarkMode: true
@@ -44,6 +45,16 @@ const MainBoard = ({reloadGame}) => {
 
     const drop = (props) => {
         setDroppedCard(props)
+    }
+
+
+    const reloadGame = (props) => {
+        console.log(props)
+        setPause(false)
+        setStop(false)
+        setStart(false)
+        setLoading(false)
+        setScoring({score: tmpScoring2, partNb: 0})
     }
 
     const gameStop = (props) => {
@@ -88,8 +99,6 @@ const MainBoard = ({reloadGame}) => {
             scoring.partNb++
             setScoring({score: tmpScoring, partNb: scoring.partNb})
             setLoading(false)
-            console.log(scoring)
-
         }
     }
 
@@ -99,12 +108,12 @@ const MainBoard = ({reloadGame}) => {
 
     const setReloading = () => {
         setStop(false)
+        setPause(false)
         setStart(true)
         setSelectedSlot("")
         setLoading(true)
         setTime(0)
         initDropZone()
-
     }
 
     const updateTime = (props) => {
@@ -194,6 +203,8 @@ const MainBoard = ({reloadGame}) => {
                 setSettings={setSettings}
                 scoring={scoring}
                 setReloading={setReloading}
+                reloadGame={reloadGame}
+                start={start}
             />
         )
     }
