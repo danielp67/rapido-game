@@ -49,7 +49,7 @@ const MainBoard = () => {
 
 
     const reloadGame = (props) => {
-        console.log(props)
+      //  console.log(props)
         setPause(false)
         setStop(false)
         setStart(false)
@@ -58,7 +58,7 @@ const MainBoard = () => {
     }
 
     const gameStop = (props) => {
-        console.log("player win :" + props)
+      //  console.log("player win :" + props)
         setStop(true)
         clearTimeout()
     }
@@ -99,6 +99,8 @@ const MainBoard = () => {
             scoring.partNb++
             setScoring({score: tmpScoring, partNb: scoring.partNb})
             setLoading(false)
+
+
         }
     }
 
