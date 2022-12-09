@@ -1,8 +1,22 @@
-# Getting Started with Create React App
+# Rapido Game inspired by Ligretto Game
+
+## Description
+
+Made in ReactJS with Bootstrap.
+
+Responsive and working on desktop or mobile.
+
+First player who arrive at 100 win the game.
+
+
+
+## Installation
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
