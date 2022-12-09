@@ -180,7 +180,7 @@ const Player = (props) => {
         }
 
         if (tmpDeck["rapidoSlot"].length === 0) {
-            console.log("winner")
+           // console.log("winner")
             gameStop(playerIndex)
             tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
         }

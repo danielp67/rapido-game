@@ -23,7 +23,7 @@ const MainMenu = (props) => {
     })
 
 
-    if (winnerGame[0].total >= 50) {
+    if (winnerGame[0].total >= 100) {
         winner = true
 
     }
