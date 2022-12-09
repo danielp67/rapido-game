@@ -164,9 +164,7 @@ const Player = (props) => {
             - (tmpDeck.rapidoSlot[0].value !== "X" ? tmpDeck.rapidoSlot.length : 0)
             - (tmpDeck.rapidoSlot[0].value !== "X" ? tmpDeck.rapidoSlot.length*2 : 0)
 
-console.log(playerIndex, tmpDeck)
         setScore({playerIndex: playerIndex, currentScore: score})
-
     }
 
     function dropCard(slotName, currentCard, tmpDroppedCard, i) {
