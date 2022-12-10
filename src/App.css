@@ -1,6 +1,4 @@
-body{
-  font-size:20px;
-}
+
 
 
 .playerSlot {
@@ -19,11 +17,34 @@ body{
   width: 30px;
 }
 
-.sortedSlotCard{
-  height: 80px;
-  width: 55px;
-  margin: auto;
+@media (max-width: 576px) {
+
+  body{
+    font-size:15px;
+  }
+
+  .sortedSlotCard{
+    height: 50px;
+    width: 30px;
+    margin: auto;
+  }
+
 }
+
+@media (min-width: 576px) {
+
+  body{
+    font-size:20px;
+  }
+
+  .sortedSlotCard{
+    height: 80px;
+    width: 55px;
+    margin: auto;
+  }
+
+}
+
 
 
 @keyframes launcher {

@@ -22,7 +22,7 @@ const MainBoard = () => {
     const [settings, sendSettings] = useState(
         {
             nbPlayer: "4",
-            level: "100",
+            level: "1000",
             switchCountScore: true,
             switchTimer: true,
             switchDarkMode: true
