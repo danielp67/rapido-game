@@ -17,6 +17,8 @@
   width: 30px;
 }
 
+
+
 @media (max-width: 576px) {
 
   body{
@@ -45,7 +47,19 @@
 
 }
 
+@media (orientation: landscape) and (max-height: 576px){
 
+  body{
+    font-size:15px;
+  }
+
+  .sortedSlotCard{
+    height: 50px;
+    width: 30px;
+    margin: auto;
+  }
+
+}
 
 @keyframes launcher {
   0% {
