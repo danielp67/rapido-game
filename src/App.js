@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import MainBoard from "./Components/MainBoard";
+import {ThemeContext, Theme} from "./Context/ThemeContext";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.toggleTheme = () => {
+            this.setState(state => ({
+                theme:
+                    state.theme === Theme.dark ? Theme.light : Theme.dark,
+            }));
+        };
+
+        // L’état local contient aussi la fonction de mise à jour donc elle va
+        // être passée au fournisseur de contexte
+        this.state = {
+            theme: Theme.dark,
+            toggleTheme: this.toggleTheme,
+        };
+    }
+
+    render() {
+
+        return (
+            <ThemeContext.Provider value={this.state}>
+                <div className={`container-fluid min-vh-100 ${this.state.theme.className}`}>
+                    <MainBoard/>
+                </div>
+            </ThemeContext.Provider>
+        );
+    }
 }
 
 export default App;
