@@ -221,7 +221,6 @@ const Player = (props) => {
     }
 
     useEffect(() => {
-        console.log(playerTime, level)
         const playerSpeed = setTimeout(() => {
             if (!realPlayer && !pause) {
                 checkCardDroppable()
