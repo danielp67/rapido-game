@@ -26,6 +26,7 @@ const Player = (props) => {
     const {params} = useContext(ParamsContext)
     const [currentCard, setCurrentCard] = useState({})
     const [slotName, setSlotName] = useState({})
+    const [playerTime, setPlayerTime] = useState(0)
 
     const [initPlayer, setInitPlayer] = useState(false)
     const [deck, setDeck] = useState(
@@ -152,6 +153,7 @@ const Player = (props) => {
 
         if (!isCardDropped) {
             nextCard()
+            console.log('next')
         }
     }
 
@@ -199,9 +201,11 @@ const Player = (props) => {
     }
 
 
+
     if (!initPlayer) {
         initDeck()
         setInitPlayer(true)
+
 
     }
 
@@ -209,15 +213,24 @@ const Player = (props) => {
         sendScore()
     }
 
+    const refreshPlayerTime = () => {
+        let tmpTime = playerTime
+
+        tmpTime += level
+        setPlayerTime(tmpTime)
+    }
+
     useEffect(() => {
+        console.log(playerTime, level)
         const playerSpeed = setTimeout(() => {
             if (!realPlayer && !pause) {
                 checkCardDroppable()
+                refreshPlayerTime()
             }
         }, level);
 
         return () => clearTimeout(playerSpeed);
-    });
+    },[playerTime, pause]);
 
 
     return (
