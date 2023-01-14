@@ -22,8 +22,7 @@ const MainMenu = (props) => {
         return b.total - a.total
     })
 
-
-    if (winnerGame[0].total >= 100) {
+    if (winnerGame[0].total >= 100 || !settings.switchCountScore) {
         winner = true
 
     }

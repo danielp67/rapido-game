@@ -1,5 +1,17 @@
 # Rapido Game inspired by Ligretto Game
 
+![](https://img.shields.io/badge/Code-React-informational?style=flat&logo=react&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Code-Javascript-informational?style=flat&logo=javascript&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Code-Bootstrap-informational?style=flat&logo=bootstrap&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Code-Html-informational?style=flat&logo=html&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Code-Css-informational?style=flat&logo=css&logoColor=white&color=2bbc8a)
+
+
+
+![](https://img.shields.io/badge/Tools-Git-informational?style=flat&logo=git&logoColor=white&color=FFA500)
+![](https://img.shields.io/badge/Tools-GitHub-informational?style=flat&logo=github&logoColor=white&color=FFA500)
+
+
 ## Description
 
 Made in ReactJS with Bootstrap.
@@ -8,7 +20,20 @@ Responsive and working on desktop or mobile.
 
 First player who arrive at 100 win the game.
 
+Several option added to suits you :)
 
+
+###[Try it now](https://rapido-game-demo.onrender.com/)
+
+![menu](./document/screenshot/Image1.png)
+
+
+![settings](./document/screenshot/Image2.png)
+
+![score](./document/screenshot/Image3.png)
+
+
+![inplay](./document/screenshot/Image4.png)
 
 ## Installation
 
