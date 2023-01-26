@@ -153,7 +153,6 @@ const Player = (props) => {
 
         if (!isCardDropped) {
             nextCard()
-            console.log('next')
         }
     }
 

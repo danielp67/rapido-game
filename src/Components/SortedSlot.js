@@ -21,7 +21,7 @@ const SortedSlot = (props) => {
                  onDragLeave={() => dragLeave()}
             >
                 <div className={`card sortedSlotCard border border-dark border-2 my-1 bg-${droppedCard[0].suit}`}>
-                    <p className="my-auto fs-2 fw-bold">{droppedCard[0].value}</p>
+                    <p className="my-auto fs-5 fw-bold">{droppedCard[0].value}</p>
 
                 </div>
             </div>
@@ -33,7 +33,7 @@ const SortedSlot = (props) => {
                  onDragEnter={() => dragEnter()}
             >
                 <div className={`card sortedSlotCard my-1 bg-${droppedCard[0].suit}`}>
-                    <p className="my-auto fs-2 fw-bold">{droppedCard[0].value}</p>
+                    <p className="t my-auto fs-5 fw-bold">{droppedCard[0].value}</p>
 
                 </div>
             </div>

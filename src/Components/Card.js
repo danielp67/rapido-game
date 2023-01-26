@@ -32,7 +32,7 @@ const Card = (props) => {
                 onTouchEndCapture={(e) => doubleClick(e)}
                 draggable
             >
-                <p className="my-auto fs-3 fw-bold">{card.value}</p>
+                <p className="my-auto fs-4 fw-bold">{card.value}</p>
             </div>
 
         )
