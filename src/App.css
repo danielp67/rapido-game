@@ -7,8 +7,8 @@
 }
 
 .playerCard{
-  height: 80px;
-  width: 55px;
+  height: 70px;
+  width: 45px;
 }
 
 
@@ -22,13 +22,12 @@
 @media (max-width: 576px) {
 
   body{
-    font-size:8px;
+    font-size:15px;
   }
 
   .sortedSlotCard{
     height: 50px;
     width: 30px;
-    margin: auto;
   }
 
 }
@@ -40,9 +39,8 @@
   }
 
   .sortedSlotCard{
-    height: 80px;
-    width: 55px;
-    margin: auto;
+    height: 70px;
+    width: 45px;
   }
 
 }
@@ -56,7 +54,6 @@
   .sortedSlotCard{
     height: 50px;
     width: 30px;
-    margin: auto;
   }
 
 }
